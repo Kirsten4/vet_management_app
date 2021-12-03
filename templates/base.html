@@ -1,0 +1,23 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Vet Management</title>
+</head>
+<body>
+    <main class="flex_nav"> 
+        <nav>
+            <ul>
+                <li>
+                    <a href="/owners">Owners</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="content">
+            {% block content %}
+                
+            {% endblock content %}
+        </section>
+    </main>
+</body>
+</html>
