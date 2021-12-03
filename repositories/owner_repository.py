@@ -21,3 +21,12 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM owners"
     run_sql(sql)
+
+def select(id):
+    owner = None
+    sql = "SELECT * FROM owners WHERE id = %s"
+    values = [id]
+    result = run_sql(sql,values)[0]
+    if result is not None:
+        owner = Owner(result['name'], result['phone_number'], result['address'], result['email_address'], result['id'])
+    return owner

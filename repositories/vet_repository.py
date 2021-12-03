@@ -21,3 +21,12 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM vets"
     run_sql(sql)
+
+def select(id):
+    vet = None
+    sql = "SELECT * FROM vets WHERE id = %s"
+    values = [id]
+    result = run_sql(sql,values)[0]
+    if result is not None:
+        vet = Vet(result['name'], result['qualified_date'])
+    return vet
