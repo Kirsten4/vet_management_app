@@ -1,5 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(63, 62, 62);
 }
 
 #header-1 {
@@ -41,19 +42,24 @@ body{
     grid-template-rows: 1.5fr 8fr 0.5fr;
 }
 
+a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .nav-button {
     margin-top: 20px;
     background-color: #57652A;
     color: white;
     padding: 10px;
     border-radius: 8px;
-    border-color: white;
+    border: white solid 1px;
     width: auto;
-
 }
 
-a:-webkit-any-link {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
+.submit-form a {
+    background-color: #155765;
+    padding: 10px;
+    border-radius: 8px;
 }

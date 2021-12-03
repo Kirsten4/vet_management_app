@@ -2,6 +2,11 @@
 
 {% block content %}
 <h1>Vets</h1>
+
+<div class="submit-form"> 
+    <a href="/vets/new">+ Add New Vet</a>
+</div>
+
 <ul>
     {% for vet in vets %}
         <li>
@@ -9,8 +14,6 @@
         </li>
     {% endfor %}
 </ul>
-<p>
-    <a href="/vets/new">Add New Vet</a>
-</p>
+
 
 {% endblock content %}
