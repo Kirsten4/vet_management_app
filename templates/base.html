@@ -2,28 +2,31 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Vet Management</title>
+    <title>Paws & Claws</title>
 </head>
-<body>
-    <main class="flex_nav"> 
-        <nav>
-            <ul>
-                <li>
+<body id="grid">
+    <header id="header-1">
+        <h1>Paws & Claws Veterinary Practice</h1>
+    </header> 
+        <nav id="nav-bar">
+                <div class=nav-button>
                     <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/vets">Vets</a>
-                </li>
-                <li>
+                </div>
+                <div class=nav-button>
+                    <a href="/vets">Vets<a>
+                </div>
+                <div class=nav-button>
                     <a href="/owners">Owners</a>
-                </li>
-            </ul>
+                </div>
         </nav>
-        <section id="content">
+        <section id="content-1">
             {% block content %}
                 
             {% endblock content %}
         </section>
-    </main>
+        <footer id="footer-1">
+            <div> © P&C 2021</div>
+        </footer>
 </body>
+
 </html>
