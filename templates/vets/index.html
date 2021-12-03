@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Owners</h1>
+<h1>Vets</h1>
 <ul>
-    {% for owner in owners %}
+    {% for vet in vets %}
         <li>
-            {{ owner.name }}
+            {{ vet.name }}
         </li>
     {% endfor %}
 </ul>
 <p>
-    <a href="/owners/new">Register New Owner</a>
+    <a href="/vets/new">Add New Vet</a>
 </p>
 
 {% endblock content %}

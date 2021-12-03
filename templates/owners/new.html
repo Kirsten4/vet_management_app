@@ -2,30 +2,40 @@
 {% block content %}
 <form action="/owners" method="post">
     <div>
-        <label for="name">Name:</label>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" placeholder="eg Joe Bloggs" required autofocus>
     </div>
 
     <div>
-        <label for="phone_number">Phone Number:</label>
+        <label for="phone_number">Phone Number: <span class="required_*">*</span></label><br>
         <input type="text" id="phone_number" name="phone_number" placeholder="eg 0141 012 3456" required inputmode="numeric"> 
     </div>
 
     <div>
-        <label for="address_1">Address Line 1:</label>
+        <label for="address_1">Address Line 1: <span class="required_*">*</span></label><br>
         <input type="text" id="address_1" name="address_1" placeholder="eg 111 Argyle Street" required>
     </div>
+
     <div>
-        <label for="address_2">Address Line 2 (optional):</label>
+        <label for="address_2">Address Line 2 (optional):</label><br>
         <input type="text" id="address_2" name="address_2" placeholder="eg Flat 2A">
     </div>
+
     <div>
-        <label for="address_3">City:</label>
+        <label for="address_3">City: <span class="required_*">*</span></label><br>
         <input type="text" id="address_3" name="address_3" placeholder="eg Glasgow" required>
     </div>
+
     <div>
-        <label for="address_4">Postcode:</label>
+        <label for="address_4">Postcode: <span class="required_*">*</span></label><br>
         <input type="text" id="address_4" name="address_4" placeholder="eg G3 8AD" required>
     </div>
+
+    <div>
+        <label for="email_address">Email: <span class="required_*">*</span></label><br>
+        <input type="email" id="email_address" name="email_address" placeholder="eg joe@fake.com" required>
+    </div>
+
+    <button type="submit">Add Owner</button>
 </form>
 {% endblock content %}

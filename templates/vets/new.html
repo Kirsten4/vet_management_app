@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/vets" method="post">
+    <div>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
+        <input type="text" id="name" name="name" placeholder="eg Joe Bloggs" required autofocus>
+    </div>
+
+    <div>
+        <label for="phone_number">Phone Number: <span class="required_*">*</span></label><br>
+        <input type="date" id="phone_number" name="phone_number" placeholder="eg 0141 012 3456" required inputmode="numeric"> 
+    </div>
+
+    <button type="submit">Add Vet</button>
+</form>
+{% endblock content %}
