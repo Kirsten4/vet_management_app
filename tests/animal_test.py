@@ -5,7 +5,7 @@ from datetime import date
 class TestAnimal(unittest.TestCase):
 
     def setUp(self):
-        self.animal = Animal("Juneau", date(2011,11,14), "Dog", "Allan", "notes...", "Noel Fitzpatrick")
+        self.animal = Animal("Juneau", date(2011,11,14), "Dog", "Allan", "notes...", "Noel Fitzpatrick",4)
 
     def test_animal_has_name(self):
         self.assertEqual("Juneau", self.animal.name)
@@ -24,3 +24,6 @@ class TestAnimal(unittest.TestCase):
 
     def test_animal_has_vet(self):
         self.assertEqual("Noel Fitzpatrick", self.animal.vet)
+
+    def test_animal_has_id(self):
+        self.assertEqual(4,self.animal.id)
