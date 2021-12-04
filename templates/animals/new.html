@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/animals" method="post">
+    <div>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
+        <input type="text" id="name" name="name" placeholder="eg Scooby Doo" required autofocus>
+    </div>
+
+    <div>
+        <label for="date_of_birth">Date of Birth: <span class="required_*">*</span></label><br>
+        <input type="date" id="date_of_birth" name="date_of_birth" > 
+    </div>
+
+    <div>
+        <!-- <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label> -->
+        <input type="radio" id="dog" name="type_of_animal" value="dog">
+        <label for="dog">Dog</label>
+        <input type="radio" id="cat" name="type_of_animal" value="cat">
+        <label for="cat">Cat</label>
+        <input type="radio" id="rabbit" name="type_of_animal" value="rabbit">
+        <label for="rabbit">Rabbit</label>
+    </div>
+
+
+    <button type="submit">Add Owner</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Animals</h1>
+
+<div class="submit-form"> 
+    <a href="/animals/new">+ Register New Animal</a>
+</div>
+
+<ul>
+    {% for animal in animals %}
+        <li>
+            {{ animal.name }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
