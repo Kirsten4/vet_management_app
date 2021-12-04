@@ -7,12 +7,30 @@
     <a href="/owners/new">+ Register New Owner</a>
 </div>
 
-<ul>
+<!-- <ul>
     {% for owner in owners %}
         <li>
             {{ owner.name }}{{ owner.phone_number }}{{ owner.address }}{{ owner.email_address }}
         </li>
     {% endfor %}
-</ul>
+</ul> -->
 
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Email Address</th>
+    </tr>
+    
+    {% for owner in owners %}
+    <tr>
+        <td>{{ owner.name }}</td>
+        <td>{{ owner.phone_number }}</td>
+        <td>{{ owner.address }}</td>
+        <td>{{ owner.email_address }}</td>
+    </tr>
+    {% endfor %}
+    
+</table>
 {% endblock content %}

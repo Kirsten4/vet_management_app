@@ -30,3 +30,13 @@ def select(id):
     if result is not None:
         owner = Owner(result['name'], result['phone_number'], result['address'], result['email_address'], result['id'])
     return owner
+
+def delete(id):
+    sql = "DELETE  FROM owners WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(owner):
+    sql = "UPDATE owners SET (name, phone_number, address, email_address) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [owner.name, owner.phone_number, owner.address, owner.email_address, owner.id]
+    run_sql(sql, values)

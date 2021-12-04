@@ -9,6 +9,7 @@ vets_blueprint = Blueprint("vets", __name__)
 @vets_blueprint.route("/vets")
 def vets():
     vets = vet_repository.select_all()
+    vets.sort(key=lambda x: x.name)
     return render_template("vets/index.html", vets=vets)
 
 # NEW

@@ -9,6 +9,7 @@ owners_blueprint = Blueprint("owners", __name__)
 @owners_blueprint.route("/owners")
 def owners():
     owners = owner_repository.select_all()
+    owners.sort(key=lambda x: x.name)
     return render_template("owners/index.html", owners=owners)
 
 # NEW
