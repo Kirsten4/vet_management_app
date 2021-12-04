@@ -12,16 +12,48 @@
     </div>
 
     <div>
-        <!-- <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label> -->
+        <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label><br>
         <input type="radio" id="dog" name="type_of_animal" value="dog">
         <label for="dog">Dog</label>
         <input type="radio" id="cat" name="type_of_animal" value="cat">
         <label for="cat">Cat</label>
         <input type="radio" id="rabbit" name="type_of_animal" value="rabbit">
         <label for="rabbit">Rabbit</label>
+        <input type="radio" id="hamster" name="type_of_animal" value="hamster">
+        <label for="hamster">Hamster</label>
+        <input type="radio" id="bird" name="type_of_animal" value="bird">
+        <label for="bird">Bird</label>
+        <input type="radio" id="snake" name="type_of_animal" value="snake">
+        <label for="snake">Snake</label>
+        <input type="radio" id="turtle" name="type_of_animal" value="turtle">
+        <label for="turtle">Turtle</label>
+    </div>
+
+    <div>
+        <label for="owner">Owner:</label>
+        <select id="owner" name="owner_id">
+          {% for owner in owners  %}
+              <option value="{{owner.id}}">{{ owner.id }}{{ owner.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="treatment_notes">Treatment Notes:</label><br>
+        <!-- <textarea name="treatment_notes" id="treatment_notes" cols="30" rows="3"></textarea> -->
+        <input type="text" id="treatment_notes" name="treatment_notes" >
+    </div>
+
+    <div>
+        <label for="vet">Vet:</label>
+        <select id="vet" name="vet_id">
+            {% for vet in vets  %}
+                <option value="{{vet.id}}">{{ vet.id }}{{ vet.name }}</option>
+            {% endfor %}
+        </select>
     </div>
 
 
-    <button type="submit">Add Owner</button>
+    <button type="submit">Register Animal</button>
 </form>
 {% endblock content %}

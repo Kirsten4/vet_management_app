@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(63, 62, 62);
@@ -15,6 +17,7 @@ body{
 
 #header-1 h1 {
     margin: 0px;
+    font-family: 'Acme', sans-serif;
 }
 
 #footer-1 {

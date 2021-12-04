@@ -18,7 +18,9 @@ def animals():
 # Return html form to the browser
 @animals_blueprint.route("/animals/new")
 def new_animal():
-    return render_template("animals/new.html")
+    owners = owner_repository.select_all()
+    vets = vet_repository.select_all()
+    return render_template("animals/new.html", owners=owners, vets=vets)
 
 # CREATE
 # POST '/animals'

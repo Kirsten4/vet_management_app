@@ -10,7 +10,7 @@
 <ul>
     {% for owner in owners %}
         <li>
-            {{ owner.name }}
+            {{ owner.name }}{{ owner.phone_number }}{{ owner.address }}{{ owner.email_address }}
         </li>
     {% endfor %}
 </ul>

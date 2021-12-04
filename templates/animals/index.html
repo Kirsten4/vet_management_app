@@ -10,7 +10,7 @@
 <ul>
     {% for animal in animals %}
         <li>
-            {{ animal.name }}
+            {{ animal.name }}{{ animal.date_of_birth }}{{ animal.type_of_animal }}{{ animal.owner.name }} {{ animal.treatment_notes }} {{ animal.vet.name }}
         </li>
     {% endfor %}
 </ul>
