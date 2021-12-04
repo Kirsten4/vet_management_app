@@ -49,6 +49,7 @@ animal_repository.save(animal_3)
 animal_4 = Animal("Macleane", date(2017,3,23), "bird", owner_1, "notes...", vet_1)
 animal_repository.save(animal_4)
 
+
 # Test select_all()
 print(owner_repository.select_all())
 print(vet_repository.select_all())
@@ -58,12 +59,13 @@ print(animal_repository.select_all())
 # Test select(id)
 print(owner_repository.select(owner_2.id).name)
 print(vet_repository.select(vet_1.id).name)
+print(animal_repository.select(animal_4.id).name)
 
 
 # Test delete(id)
 owner_repository.delete(owner_3.id)
 vet_repository.delete(vet_3.id)
-
+animal_repository.delete(animal_3.id)
 
 
 #  Test update
@@ -73,6 +75,8 @@ owner_repository.update(owner_1)
 vet_2.qualified_date = "1941-09-12"
 vet_repository.update(vet_2)
 
+animal_4.name = "Maclean"
+animal_repository.update(animal_4)
 
 # "Peter Wright"
 # "Julian Norton"

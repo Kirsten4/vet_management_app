@@ -121,6 +121,7 @@ img {
 .home-container div a {
     color: rgb(20, 63, 77);
     font-weight: 900;
+    text-shadow: white 1px 1px;
 }
 
 h2 {
@@ -129,5 +130,6 @@ h2 {
 }
 
 .nav-button a {
-    color: rgb(20, 63, 77);
+    color: white;
+    text-shadow: rgb(20, 63, 77) 1px 1px;
 }

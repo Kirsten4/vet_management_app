@@ -25,3 +25,24 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM animals"
     run_sql(sql)
+
+def select(id):
+    animal = None
+    sql = "SELECT * FROM animals WHERE id = %s"
+    values = [id]
+    result = run_sql(sql,values)[0]
+    if result is not None:
+        owner = owner_repository.select(result['owner_id'])
+        vet = vet_repository.select(result['vet_id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['id'])
+    return animal
+
+def delete(id):
+    sql = "DELETE  FROM animals WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(animal):
+    sql = "UPDATE animals SET (name, date_of_birth, type_of_animal, owner_id, treatment_notes, vet_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.treatment_notes, animal.vet.id, animal.id]
+    run_sql(sql, values)
