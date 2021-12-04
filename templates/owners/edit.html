@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/owners/{{ owner.id }}" method="post">
+    <div>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
+        <input type="text" id="name" name="name" value="{{ owner.name }}" placeholder="eg Joe Bloggs" required autofocus>
+    </div>
+
+    <div>
+        <label for="phone_number">Phone Number: <span class="required_*">*</span></label><br>
+        <input type="text" id="phone_number" name="phone_number" value="{{ owner.phone_number }}" placeholder="eg 0141 012 3456" required inputmode="numeric"> 
+    </div>
+
+    <div>
+        <label for="address_1">Address Line 1: <span class="required_*">*</span></label><br>
+        <input type="text" id="address_1" name="address_1" value="{{ address_list[0] }}" placeholder="eg 111 Argyle Street" required>
+    </div>
+
+    <div>
+        <label for="address_2">Address Line 2 (optional):</label><br>
+        <input type="text" id="address_2" name="address_2" value="{{ address_list[1] }}" placeholder="eg Flat 2A">
+    </div>
+
+    <div>
+        <label for="address_3">City: <span class="required_*">*</span></label><br>
+        <input type="text" id="address_3" name="address_3" value="{{ address_list[2] }}" placeholder="eg Glasgow" required>
+    </div>
+
+    <div>
+        <label for="address_4">Postcode: <span class="required_*">*</span></label><br>
+        <input type="text" id="address_4" name="address_4" value="{{ address_list[3] }}" placeholder="eg G3 8AD" required>
+    </div>
+
+    <div>
+        <label for="email_address">Email: <span class="required_*">*</span></label><br>
+        <input type="email" id="email_address" name="email_address" value="{{ owner.email_address }}" placeholder="eg joe@fake.com" required>
+    </div>
+
+    <button type="submit">Update Owner</button>
+</form>
+{% endblock content %}

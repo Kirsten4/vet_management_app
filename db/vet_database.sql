@@ -6,7 +6,7 @@ CREATE TABLE vets(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     qualified_date VARCHAR(255),
-    photo bytea
+    photo VARCHAR(255)
 );
 
 CREATE TABLE owners(
