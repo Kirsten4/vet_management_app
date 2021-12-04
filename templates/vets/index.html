@@ -11,6 +11,11 @@
     {% for vet in vets %}
         <li>
             {{ vet.name }}
+        {% if vet.photo %}
+            <img src="/static/img/{{ vet.photo }}" alt="vet photo">  
+        {% else %}
+            <img src="/static/img/placeholder-avatar.png" alt="vet photo">  
+        {% endif %} 
         
         <form class="edit-form" action="/vets/{{vet.id}}/edit">
             <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 

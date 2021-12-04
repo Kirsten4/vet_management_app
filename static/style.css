@@ -71,7 +71,7 @@ a:-webkit-any-link {
 .nav-button {
     margin-top: 20px;
     background-color: #48a3af;
-    color: white;
+    color:rgb(20, 63, 77);
     padding: 10px;
     border-radius: 8px;
     border: rgb(20, 63, 77) solid 2px;
@@ -97,4 +97,37 @@ table, th, td {
 
 img {
     max-height: 100px;
+}
+
+.home-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+}
+.home-container div {
+    display: flex;
+    background-color: #7bcad4;
+    border: rgb(20, 63, 77) solid 3px;
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+}
+
+.home-container div a {
+    color: rgb(20, 63, 77);
+    font-weight: 900;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.nav-button a {
+    color: rgb(20, 63, 77);
 }
