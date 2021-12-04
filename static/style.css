@@ -5,14 +5,22 @@ body{
 
 #header-1 {
     grid-area: header-1;
-    background-color: #4D2C3D;
+    /* background-color: #4D2C3D; */
+    background-color: rgb(20, 63, 77);
     color: white;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header-1 h1 {
+    margin: 0px;
 }
 
 #footer-1 {
     grid-area: footer-1;
-    background-color: #4D2C3D;
+    /* background-color: #4D2C3D; */
+    background-color: rgb(20, 63, 77);
     color: white;
     display: flex;
     align-items: center;
@@ -21,7 +29,7 @@ body{
 
 #nav-bar {
     grid-area: nav-bar;
-    background-color: #AB9353;
+    background-color: #f0dcc5;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -50,16 +58,22 @@ a:-webkit-any-link {
 
 .nav-button {
     margin-top: 20px;
-    background-color: #57652A;
+    background-color: #48a3af;
     color: white;
     padding: 10px;
     border-radius: 8px;
-    border: white solid 1px;
+    border: rgb(20, 63, 77) solid 2px;
     width: auto;
+    font-weight: bolder;
 }
 
 .submit-form a {
     background-color: #155765;
     padding: 10px;
     border-radius: 8px;
+}
+
+#cat {
+    display: flex;
+    justify-content: flex-end;
 }
