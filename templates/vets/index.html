@@ -11,6 +11,14 @@
     {% for vet in vets %}
         <li>
             {{ vet.name }}
+        
+        <form class="edit-form" action="/vets/{{vet.id}}/edit">
+            <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
+            </form>
+    
+        <form class="delete-form" action="/vets/{{vet.id}}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
+        </form>
         </li>
     {% endfor %}
 </ul>

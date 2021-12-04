@@ -34,6 +34,9 @@ vet_repository.save(vet_1)
 vet_2 = Vet("James Herriot", date(1939,12,14))
 vet_repository.save(vet_2)
 
+vet_3 = Vet("James Herriot", date(1939,12,14))
+vet_repository.save(vet_3)
+
 animal_1 = Animal("Juneau", date(2011,11,14), "dog", owner_1, "notes...", vet_2)
 animal_repository.save(animal_1)
 
@@ -59,11 +62,16 @@ print(vet_repository.select(vet_1.id).name)
 
 # Test delete(id)
 owner_repository.delete(owner_3.id)
+vet_repository.delete(vet_3.id)
+
 
 
 #  Test update
 owner_1.email_address = "allan@email.com"
 owner_repository.update(owner_1)
+
+vet_2.qualified_date = "1941-09-12"
+vet_repository.update(vet_2)
 
 
 # "Peter Wright"

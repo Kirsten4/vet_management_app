@@ -14,7 +14,7 @@ def select_all():
     sql = "SELECT * FROM vets"
     results = run_sql(sql)
     for row in results:
-        vet = Vet(row['name'], row['qualified_date'], row['id'])
+        vet = Vet(row['name'], row['qualified_date'], row['photo'], row['id'])
         vets.append(vet)
     return vets
 
@@ -28,5 +28,15 @@ def select(id):
     values = [id]
     result = run_sql(sql,values)[0]
     if result is not None:
-        vet = Vet(result['name'], result['qualified_date'], result['id'])
+        vet = Vet(result['name'], result['qualified_date'], result['photo'], result['id'])
     return vet
+
+def delete(id):
+    sql = "DELETE  FROM vets WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(vet):
+    sql = "UPDATE vets SET (name, qualified_date, photo) = (%s, %s, %s) WHERE id = %s"
+    values = [vet.name, vet.qualified_date, vet.photo, vet.id]
+    run_sql(sql, values)

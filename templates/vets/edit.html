@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <h2>Update Vet Details</h2>
+</header>
+<form action="/vets/{{ vet.id }}" method="post">
+    <div>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
+        <input type="text" id="name" name="name" value="{{ vet.name }}" placeholder="eg Joe Bloggs" required autofocus>
+    </div>
+
+    <div>
+        <label for="qualified_date">Qualified Date: <span class="required_*">*</span></label><br>
+        <input type="date" id="qualified_date" name="qualified_date" value="{{ vet.qualified_date }}" required> 
+    </div>
+
+    {% if vet.photo %}
+        Photo already in system!
+        <div>
+            <label for="photo">Select Different Photo (optional):</label><br>
+            <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
+        </div>  
+    {% else %}
+    <div>
+        <label for="photo">Select Photo (optional):</label><br>
+        <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
+    </div>  
+    {% endif %}
+
+    <button type="submit">Edit Vet</button>
+</form>
+{% endblock content %}
