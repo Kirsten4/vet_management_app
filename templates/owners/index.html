@@ -21,6 +21,7 @@
         <th>Phone Number</th>
         <th>Address</th>
         <th>Email Address</th>
+        <th>Remove Owner</th>
     </tr>
     
     {% for owner in owners %}
@@ -29,6 +30,11 @@
         <td>{{ owner.phone_number }}</td>
         <td>{{ owner.address }}</td>
         <td>{{ owner.email_address }}</td>
+        <td>
+            <form class="delete-form" action="/owners/{{owner.id}}/delete" method="POST">
+              <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> 
+            </form>
+        </td>
     </tr>
     {% endfor %}
     

@@ -2,8 +2,8 @@ from db.run_sql import run_sql
 from models.vet import Vet
 
 def save(vet):
-    sql = "INSERT INTO vets (name, qualified_date) VALUES (%s,%s) RETURNING *"
-    values = [vet.name, vet.qualified_date]
+    sql = "INSERT INTO vets (name, qualified_date, photo) VALUES (%s,%s,%s) RETURNING *"
+    values = [vet.name, vet.qualified_date, vet.photo]
     results = run_sql(sql,values)
     id = results[0]['id']
     vet.id = id

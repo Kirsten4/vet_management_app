@@ -33,7 +33,7 @@
         <label for="owner">Owner:</label>
         <select id="owner" name="owner_id">
           {% for owner in owners  %}
-              <option value="{{owner.id}}">{{ owner.id }}{{ owner.name }}</option>
+              <option value="{{owner.id}}">{{ owner.name }}</option>
           {% endfor %}
         </select>
     </div>
@@ -48,11 +48,10 @@
         <label for="vet">Vet:</label>
         <select id="vet" name="vet_id">
             {% for vet in vets  %}
-                <option value="{{vet.id}}">{{ vet.id }}{{ vet.name }}</option>
+                <option value="{{vet.id}}">{{ vet.name }}</option>
             {% endfor %}
         </select>
     </div>
-
 
     <button type="submit">Register Animal</button>
 </form>

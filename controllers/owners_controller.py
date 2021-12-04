@@ -30,3 +30,10 @@ def create_owner():
     owner = Owner(name, phone_number, address, email_address)
     owner_repository.save(owner)
     return redirect(url_for(".owners"))
+
+# DELETE
+# DELETE '/owners/<id>'
+@owners_blueprint.route("/owners/<id>/delete", methods=['POST'])
+def delete_owner(id):
+    owner_repository.delete(id)
+    return redirect(url_for(".owners"))
