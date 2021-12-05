@@ -14,7 +14,8 @@ CREATE TABLE owners(
     name VARCHAR(255),
     phone_number VARCHAR(255),
     address VARCHAR(255),
-    email_address VARCHAR(255)
+    email_address VARCHAR(255),
+    registered BOOLEAN
 );
 
 CREATE TABLE animals(

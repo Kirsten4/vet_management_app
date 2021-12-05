@@ -18,22 +18,33 @@
 
     <div>
         <label for="address_2">Address Line 2 (optional):</label><br>
-        <input type="text" id="address_2" name="address_2" value="{{ address_list[1] }}" placeholder="eg Flat 2A">
+        <input type="text" id="address_2" name="address_2" value= 
+            "{% if address_list|length > 3 %}
+                {{ address_list[-3] }}         
+            {% endif %}"
+        placeholder="eg Flat 2A">
     </div>
 
     <div>
         <label for="address_3">City: <span class="required_*">*</span></label><br>
-        <input type="text" id="address_3" name="address_3" value="{{ address_list[2] }}" placeholder="eg Glasgow" required>
+        <input type="text" id="address_3" name="address_3" value="{{ address_list[-2] }}" placeholder="eg Glasgow" required>
     </div>
 
     <div>
         <label for="address_4">Postcode: <span class="required_*">*</span></label><br>
-        <input type="text" id="address_4" name="address_4" value="{{ address_list[3] }}" placeholder="eg G3 8AD" required>
+        <input type="text" id="address_4" name="address_4" value="{{ address_list[-1] }}" placeholder="eg G3 8AD" required>
     </div>
 
     <div>
         <label for="email_address">Email: <span class="required_*">*</span></label><br>
         <input type="email" id="email_address" name="email_address" value="{{ owner.email_address }}" placeholder="eg joe@fake.com" required>
+    </div>
+
+    <div>
+        <label for="registered">Registered: </label><br>
+        <input type="checkbox" id="registered" name="registered" value="1" {% if owner.registered %}
+            checked = "checked"
+        {% endif %} >
     </div>
 
     <button type="submit">Update Owner</button>

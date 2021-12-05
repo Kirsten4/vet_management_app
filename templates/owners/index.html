@@ -21,9 +21,10 @@
         <th>Phone Number</th>
         <th>Address</th>
         <th>Email Address</th>
+        <th>Registered</th>
         <th>Animals</th>
         <th>Edit Owner</th>
-        <th>Remove Owner</th>
+        <th>Delete Owner</th>
     </tr>
     
     {% for owner in owners %}
@@ -32,18 +33,20 @@
         <td>{{ owner.phone_number }}</td>
         <td>{{ owner.address }}</td>
         <td>{{ owner.email_address }}</td>
+        <td>{{ owner.registered }}</td>
         <td>
             <form class="animal-form" action="/owners/{{owner.id}}">
                 <button class="animal-button"><i class="fa fa-paw fa-3x" style="color:rgb(20, 58, 107)" ></i></button> 
             </form>
         </td>
         <td>
-            <form class="edit-form" action="/owners/{{owner.id}}/edit">
+            <form class="animal-form" action="/owners/{{owner.id}}/edit">
                 <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
               </form>
         </td>
+        
         <td>
-            <form class="delete-form" action="/owners/{{owner.id}}/delete" method="POST">
+            <form class="animal-form" action="/owners/{{owner.id}}/delete" method="POST">
               <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
             </form>
         </td>

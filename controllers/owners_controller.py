@@ -48,7 +48,11 @@ def update_owner(id):
     phone_number = request.form['phone_number']
     address = f"{request.form['address_1']}, {request.form['address_2']}, {request.form['address_3']}, {request.form['address_4']}"
     email_address = request.form['email_address']
-    owner = Owner(name, phone_number, address, email_address, id)
+    if "registered" in request.form:
+        registered = True
+    else:
+        registered = False
+    owner = Owner(name, phone_number, address, email_address, registered, id)
     owner_repository.update(owner)
     return redirect(url_for(".owners"))
 
@@ -66,3 +70,4 @@ def show(id):
     owner = owner_repository.select(id)
     animals = animal_repository.select_all_by_owner(owner)
     return render_template("owners/show.html", owner=owner, animals=animals)
+
