@@ -10,7 +10,17 @@
 <ul>
     {% for animal in animals %}
         <li>
-            {{ animal.id }}{{ animal.name }}{{ animal.date_of_birth }}{{ animal.type_of_animal }}{{ animal.owner.name }} {{ animal.treatment_notes }} {{ animal.vet.name }}
+            Name: {{ animal.name }}<br>
+            Date of Birth: {{ animal.date_of_birth }}<br>
+            Type: {{ animal.type_of_animal }}<br>
+            Owner: {{ animal.owner.name }} <br>
+            Notes: {{ animal.treatment_notes }} <br>
+            Vet: {{ animal.vet.name }} <br>
+            {% if animal.photo %}
+                <img src="/static/img/{{ animal.photo }}" alt="animal photo">  
+            {% else %}
+                <img src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
+            {% endif %} 
             <form class="edit-form" action="/animals/{{animal.id}}/edit">
                 <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
                 </form>

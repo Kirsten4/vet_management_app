@@ -26,11 +26,7 @@ def create_vet():
     name = request.form['name']
     qualified_date = request.form['qualified_date']
     photo = request.form['photo']
-    print(name)
-    print(type(photo))
-    print(str(photo))
     vet = Vet(name, qualified_date, photo)
-    print(vet.photo)
     vet_repository.save(vet)
     return redirect(url_for(".vets"))
 
