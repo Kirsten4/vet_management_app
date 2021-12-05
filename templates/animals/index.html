@@ -7,9 +7,13 @@
     <a href="/animals/new">+ Register New Animal</a>
 </div>
 
-<ul>
+
     {% for animal in animals %}
-        <li>
+        <div>
+            <form class="check-in-form" action="/animals/{{animal.id}}/check_in" method="POST">
+                <button id="check-in-button" type="button">Check-In</button> 
+            </form>
+           
             Name: {{ animal.name }}<br>
             Date of Birth: {{ animal.date_of_birth }}<br>
             Type: {{ animal.type_of_animal }}<br>
@@ -28,8 +32,8 @@
             <form class="delete-form" action="/animals/{{animal.id}}/delete" method="POST">
                 <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
             </form>
-        </li>
+        </div>
     {% endfor %}
-</ul>
+
 
 {% endblock content %}

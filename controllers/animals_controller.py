@@ -39,9 +39,12 @@ def create_animal():
     vets = vet_repository.select_all()
     vet = animal_repository.assign_vet_to_animal(vets)
     photo = request.form['photo']
-    animal = Animal(name, date_of_birth,type_of_animal, owner, treatment_notes, vet, photo)
-    animal_repository.save(animal)
-    return redirect(url_for(".animals"))
+    if owner.registered:
+        animal = Animal(name, date_of_birth,type_of_animal, owner, treatment_notes, vet, photo)
+        animal_repository.save(animal)
+        return redirect(url_for(".animals"))
+    else:
+        return render_template("owners/not-registered.html")
 
 # EDIT
 # GET '/animals/<id>/edit'
@@ -64,8 +67,11 @@ def update_animal(id):
     vet_id = request.form['vet_id']
     owner = owner_repository.select(owner_id)
     vet = vet_repository.select(vet_id)
+    place_holder_animal = animal_repository.select(id)
+    checked_in_time = place_holder_animal.checked_in_time
+    checked_out_time = place_holder_animal.checked_out_time
     photo = request.form['photo']
-    animal = Animal(name, date_of_birth, type_of_animal, owner, treatment_notes, vet, photo, id)
+    animal = Animal(name, date_of_birth, type_of_animal, owner, treatment_notes, vet, photo, checked_in_time, checked_out_time, id)
     animal_repository.update(animal)
     return redirect(url_for(".animals"))
 
@@ -75,3 +81,13 @@ def update_animal(id):
 def delete_animal(id):
     animal_repository.delete(id)
     return redirect(url_for(".animals"))
+
+# CHECK IN
+# GET '/animals/<id>/check_in'
+@animals_blueprint.route("/animals/<id>/check_in", methods=['POST'])
+def check_in_animal(id):
+    animal = animal_repository.select(id)
+    print(animal.name)
+    animal_repository.check_in(animal)
+    return redirect(url_for(".animals"))
+
