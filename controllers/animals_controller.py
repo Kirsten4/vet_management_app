@@ -83,11 +83,17 @@ def delete_animal(id):
     return redirect(url_for(".animals"))
 
 # CHECK IN
-# GET '/animals/<id>/check_in'
-@animals_blueprint.route("/animals/<id>/check_in", methods=['POST'])
+# POST '/animals/<id>/check_in'
+@animals_blueprint.route("/animals/<id>/check_in", methods=['GET', 'POST'])
 def check_in_animal(id):
     animal = animal_repository.select(id)
-    print(animal.name)
     animal_repository.check_in(animal)
     return redirect(url_for(".animals"))
 
+# CHECK OUT
+# POST '/animals/<id>/check_out'
+@animals_blueprint.route("/animals/<id>/check_out", methods=['GET','POST'])
+def check_out_animal(id):
+    animal = animal_repository.select(id)
+    animal_repository.check_out(animal)
+    return redirect(url_for(".animals"))

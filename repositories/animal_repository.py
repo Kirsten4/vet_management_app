@@ -81,8 +81,9 @@ def assign_vet_to_animal(vets):
 
 def check_in(animal):
     animal.checked_in_time = datetime.now(timezone.utc)
-    sql = "UPDATE animals SET checked_in_time = %s WHERE id = %s"
-    values = [animal.checked_in_time, animal.id]
+    animal.checked_out_time = None
+    sql = "UPDATE animals SET (checked_in_time, checked_out_time) = (%s,%s) WHERE id = %s"
+    values = [animal.checked_in_time, animal.checked_out_time, animal.id]
     run_sql(sql, values)
 
 

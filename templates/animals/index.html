@@ -9,10 +9,13 @@
 
 
     {% for animal in animals %}
-        <div>
-            <form class="check-in-form" action="/animals/{{animal.id}}/check_in" method="POST">
-                <button id="check-in-button" type="button">Check-In</button> 
-            </form>
+        <div class="check-in-buttons">
+            <a href="/animals/{{animal.id}}/check_in" method="POST">Check In</a> 
+        </div>
+        <div class="check-in-buttons">
+            <a href="/animals/{{animal.id}}/check_out" method="POST">Check Out</a>
+        </div>
+            
            
             Name: {{ animal.name }}<br>
             Date of Birth: {{ animal.date_of_birth }}<br>

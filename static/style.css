@@ -135,3 +135,22 @@ h2 {
     color: white;
     text-shadow: rgb(20, 63, 77) 1px 1px;
 }
+
+.check-in-buttons{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    background-color: #48a3af;
+    padding: 10px;
+    border-radius: 8px;
+    border: rgb(20, 63, 77) solid 2px;
+    width: 80px;
+    font-weight: bolder;
+    text-align: center;
+    box-shadow: 3px 3px 3px #888888 ;
+}
+
+.check-in-buttons a{
+    
+    
+}
