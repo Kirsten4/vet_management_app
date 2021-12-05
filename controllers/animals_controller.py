@@ -21,7 +21,9 @@ def animals():
 def new_animal():
     owners = owner_repository.select_all()
     vets = vet_repository.select_all()
-    return render_template("animals/new.html", owners=owners, vets=vets)
+    vets = vet_repository.select_all()
+    vet = animal_repository.assign_vet_to_animal(vets)
+    return render_template("animals/new.html", owners=owners, vets=vets, vet=vet)
 
 # CREATE
 # POST '/animals'
@@ -32,9 +34,11 @@ def create_animal():
     type_of_animal = request.form['type_of_animal']
     owner_id = request.form['owner_id']
     treatment_notes = request.form['treatment_notes']
-    vet_id = request.form['vet_id']
+    # vet_id = request.form['vet_id']
     owner = owner_repository.select(owner_id)
-    vet = vet_repository.select(vet_id)
+    # vet = vet_repository.select(vet_id)
+    vets = vet_repository.select_all()
+    vet = animal_repository.assign_vet_to_animal(vets)
     animal = Animal(name, date_of_birth,type_of_animal, owner, treatment_notes, vet)
     animal_repository.save(animal)
     return redirect(url_for(".animals"))

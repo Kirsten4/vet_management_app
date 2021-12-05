@@ -46,3 +46,34 @@ def update(animal):
     sql = "UPDATE animals SET (name, date_of_birth, type_of_animal, owner_id, treatment_notes, vet_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.treatment_notes, animal.vet.id, animal.id]
     run_sql(sql, values)
+
+def select_all_by_vet(vet):
+    animals = []
+    sql = "SELECT * FROM animals WHERE vet_id = %s"
+    values = [vet.id]
+    results = run_sql(sql,values)
+    for result in results:
+        owner = owner_repository.select(result['owner_id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['id'])
+        animals.append(animal)
+    return animals
+
+def select_all_by_owner(owner):
+    animals = []
+    sql = "SELECT * FROM animals WHERE owner_id = %s"
+    values = [owner.id]
+    results = run_sql(sql,values)
+    for result in results:
+        vet = vet_repository.select(result['vet_id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['id'])
+        animals.append(animal)
+    return animals
+
+def assign_vet_to_animal(vets):
+    selected_vet = vets[0]
+    number_of_animals = len(select_all_by_vet(vets[0]))
+    for vet in vets:
+        if len(select_all_by_vet(vet)) < number_of_animals:
+            selected_vet = vet
+            number_of_animals = len(select_all_by_vet(vet))
+    return selected_vet
