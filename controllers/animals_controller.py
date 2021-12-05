@@ -38,3 +38,35 @@ def create_animal():
     animal = Animal(name, date_of_birth,type_of_animal, owner, treatment_notes, vet)
     animal_repository.save(animal)
     return redirect(url_for(".animals"))
+
+# EDIT
+# GET '/animals/<id>/edit'
+@animals_blueprint.route("/animals/<id>/edit")
+def edit_animal(id):
+    owners = owner_repository.select_all() 
+    vets = vet_repository.select_all()
+    animal = animal_repository.select(id)
+    return render_template("animals/edit.html", animal=animal, owners=owners, vets=vets)
+
+# UPDATE
+# PUT '/animals/<id>'
+@animals_blueprint.route("/animals/<id>", methods=['POST'])
+def update_animal(id):
+    name = request.form['name']
+    date_of_birth = request.form['date_of_birth']
+    type_of_animal = request.form['type_of_animal']
+    owner_id = request.form['owner_id']
+    treatment_notes = request.form['treatment_notes']
+    vet_id = request.form['vet_id']
+    owner = owner_repository.select(owner_id)
+    vet = vet_repository.select(vet_id)
+    animal = Animal(name, date_of_birth, type_of_animal, owner, treatment_notes, vet, id)
+    animal_repository.update(animal)
+    return redirect(url_for(".animals"))
+
+# DELETE
+# DELETE '/animals/<id>'
+@animals_blueprint.route("/animals/<id>/delete", methods=['POST'])
+def delete_animal(id):
+    animal_repository.delete(id)
+    return redirect(url_for(".animals"))

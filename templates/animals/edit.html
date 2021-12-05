@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <h2>Edit Animal</h2>
+</header>
+<form action="/animals/{{ animal.id }}" method="post">
+    <div>
+        <label for="name">Name: <span class="required_*">*</span></label><br>
+        <input type="text" id="name" name="name" value="{{ animal.name }}" placeholder="eg Scooby Doo" required autofocus>
+    </div>
+
+    <div>
+        <label for="date_of_birth">Date of Birth: <span class="required_*">*</span></label><br>
+        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ animal.date_of_birth }}"> 
+    </div>
+
+    <!-- <div>
+        <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label><br>
+        <input type="radio" id="dog" name="type_of_animal" value="dog" 
+            {% if animal.type_of_animal == "dog" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="dog">Dog</label>
+        <input type="radio" id="cat" name="type_of_animal" value="cat" 
+            {% if animal.type_of_animal == "cat" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="cat">Cat</label>
+        <input type="radio" id="rabbit" name="type_of_animal " value="rabbit" 
+            {% if animal.type_of_animal == "rabbit" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="rabbit">Rabbit</label>
+        <input type="radio" id="hamster" name="type_of_animal" value="hamster" 
+            {% if animal.type_of_animal == "hamster" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="hamster">Hamster</label>
+        <input type="radio" id="bird" name="type_of_animal" value="bird" 
+            {% if animal.type_of_animal == "bird" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="bird">Bird</label>
+        <input type="radio" id="snake" name="type_of_animal" value="snake"
+            {% if animal.type_of_animal == "snake" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="snake">Snake</label>
+        <input type="radio" id="turtle" name="type_of_animal" value="turtle"
+            {% if animal.type_of_animal == "turtle" %}
+                checked = "checked"
+            {% endif %}>
+        <label for="turtle">Turtle</label>
+    </div> -->
+
+    <div>
+        <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label><br>
+        <input type="radio" id="dog" name="type_of_animal" value="dog">
+        <label for="dog">Dog</label>
+        <input type="radio" id="cat" name="type_of_animal" value="cat">
+        <label for="cat">Cat</label>
+        <input type="radio" id="rabbit" name="type_of_animal" value="rabbit">
+        <label for="rabbit">Rabbit</label>
+        <input type="radio" id="hamster" name="type_of_animal" value="hamster">
+        <label for="hamster">Hamster</label>
+        <input type="radio" id="bird" name="type_of_animal" value="bird">
+        <label for="bird">Bird</label>
+        <input type="radio" id="snake" name="type_of_animal" value="snake">
+        <label for="snake">Snake</label>
+        <input type="radio" id="turtle" name="type_of_animal" value="turtle">
+        <label for="turtle">Turtle</label>
+    </div>
+
+    <div>
+        <label for="owner">Owner:</label>
+        <select id="owner" name="owner_id" value="{{ owner }}">
+          {% for owner in owners  %}
+              <option value="{{owner.id}}" 
+                {% if owner.name == animal.owner.name %}
+                  selected
+                {% endif %}>{{ owner.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="treatment_notes">Treatment Notes:</label><br>
+        <input type="text" id="treatment_notes" name="treatment_notes" value="{{ animal.treatment_notes}}" >
+    </div>
+
+    <div>
+        <label for="vet">Vet:</label>
+        <select id="vet" name="vet_id">
+            {% for vet in vets  %}
+                <option value="{{vet.id}}">{{ vet.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Update Animal</button>
+</form>
+{% endblock content %}
