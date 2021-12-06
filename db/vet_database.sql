@@ -24,7 +24,7 @@ CREATE TABLE owners(
 CREATE TABLE treatments(
     id SERIAL PRIMARY KEY,
     description VARCHAR(255),
-    price MONEY,
+    price DECIMAL(8,2),
     duration INT,
     overnights INT
 );
@@ -59,8 +59,13 @@ CREATE TABLE appointments(
 );
 
 
-INSERT INTO treatments (description, price, duration, overnights) VALUES ('General health check-up', 52.50, 20, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('General health check-up', 62.50, 20, 0);
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('Vaccinations', 26.80, 10, 0);
-INSERT INTO treatments (description, price, duration, overnights) VALUES ('Keyhole surgery', 645.00, 90, 2);
-INSERT INTO treatments (description, price, duration, overnights) VALUES ('Fix broken leg', 278.50, 45, 1);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Keyhole surgery', 1645.00, 90, 2);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Fix broken leg', 678.50, 45, 1);
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('Trim claws', 19.00, 15, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Flea treatment', 32.50, 5, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Blood test', 36.00, 10, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Hip replacement', 3500.00, 180, 2);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('MRI scan', 2000.00, 30, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Xray', 350.00, 10, 0);

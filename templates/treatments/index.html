@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Available Treatments:</h1>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Price (£)</th>
+            <th>Duration (minutes)</th>
+            <th>Overnights</th>
+        </tr>
+        
+        {% for treatment in treatments %}
+        <tr>
+            <td>{{ treatment.description }}</td>
+            <td>{{ treatment.price }}</td>
+            <td>{{ treatment.duration }}</td>
+            <td>{{ treatment.overnights }}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+{% endblock content %}
