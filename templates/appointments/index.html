@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Appointments</h1>
+
+<div class="submit-form"> 
+    <a href="/appointments/new">+ Book New Appointment</a>
+</div>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Treatment</th>
+        <th>Animal</th>
+        <th>Total Bill</th>
+        <th>Edit Appointment</th>
+        <th>Delete Appointment</th>
+    </tr>
+    
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.treatment.description }}</td>
+        <td>{{ appointment.animal.name }}</td>
+        <td>{{ appointment.total_bill }}</td>
+        <td>{{ appointment.id }}</td>
+        <td>
+            <form class="animal-form" action="/appointments/{{appointment.id}}/edit">
+                <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
+              </form>
+        </td>
+        
+        <td>
+            <form class="animal-form" action="/appointments/{{appointment.id}}/delete" method="POST">
+              <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    
+</table>
+{% endblock content %}

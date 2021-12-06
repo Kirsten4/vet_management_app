@@ -33,9 +33,7 @@ def create_animal():
     type_of_animal = request.form['type_of_animal']
     owner_id = request.form['owner_id']
     treatment_notes = request.form['treatment_notes']
-    # vet_id = request.form['vet_id']
     owner = owner_repository.select(owner_id)
-    # vet = vet_repository.select(vet_id)
     vets = vet_repository.select_all()
     vet = animal_repository.assign_vet_to_animal(vets)
     photo = request.form['photo']

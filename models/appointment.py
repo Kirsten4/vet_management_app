@@ -5,4 +5,5 @@ class Appointment:
         self.treatment = treatment
         self.animal = animal
         self.total_bill = total_bill
+        self.id = id
         

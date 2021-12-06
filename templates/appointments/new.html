@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <h2>Book Appointment</h2>
+</header>
+<form action="/appointments" method="post">
+    <div>
+        <label for="date">Date: <span class="required_*">*</span></label><br>
+        <input type="date" id="date" name="date" required autofocus>
+    </div>
+
+    <div>
+        <label for="treatment">Treatment:</label>
+        <select id="treatment" name="treatment_id">
+          {% for treatment in treatments  %}
+              <option value="{{treatment.id}}">{{ treatment.description }}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="animal">Animal:</label>
+        <select id="animal" name="animal_id" >
+          {% for animal in animals  %}
+              <option value="{{animal.id}}">{{ animal.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Book</button>
+</form>
+{% endblock content %}
