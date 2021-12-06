@@ -45,7 +45,7 @@ def create_animal():
         animal_repository.save(animal)
         return redirect(url_for(".animals"))
     else:
-        return render_template("owners/not-registered.html")
+        return redirect("owners/notregistered") 
 
 # EDIT
 # GET '/animals/<id>/edit'

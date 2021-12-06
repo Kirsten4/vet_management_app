@@ -76,3 +76,16 @@ def show(id):
 #     owners = owner_repository.select_all()
 #     return render_template("owners/registered.html", owners=owners)
 
+
+@owners_blueprint.route("/owners/notregistered")
+def show_unregistered():
+    owners = owner_repository.select_all()
+    return render_template("owners/notregistered.html", owners=owners)
+
+@owners_blueprint.route("/owners/register", methods=['POST'])
+def re_register_owner():
+    print(request.form['owner_id'])
+    owner_id = request.form['owner_id']
+    owner = owner_repository.select(owner_id)
+    owner_repository.reregister(owner)
+    return redirect("/animals/new")

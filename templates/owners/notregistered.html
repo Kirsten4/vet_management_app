@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Owner's registration is not active!</h3>
+
+<form action="/owners/register" method="post">
+    <div>
+        <label for="owner">Unregistered Owners:</label>
+        <select id="owner" name="owner_id">
+          {% for owner in owners  %}
+            {% if owner.registered is false %}
+              <option value="{{owner.id}}">{{ owner.name }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Reactivate Registration</button>
+</form>
+
+{% endblock content %}
