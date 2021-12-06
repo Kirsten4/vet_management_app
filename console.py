@@ -64,7 +64,7 @@ print(note_repository.select_all())
 # Test select(id)
 print(owner_repository.select(owner_2.id).name)
 print(vet_repository.select(vet_1.id).name)
-print(animal_repository.select(animal_4.id).name)
+print(animal_repository.select(animal_4.id).__dict__)
 print(note_repository.select(note_1.id).__dict__)
 
 
@@ -83,10 +83,5 @@ vet_repository.update(vet_2)
 
 animal_4.name = "Macleane"
 animal_repository.update(animal_4)
-
-# "Peter Wright"
-# "Julian Norton"
-# "Noel Fitzpatrick"
-# James Herriot
 
 pdb.set_trace

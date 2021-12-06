@@ -57,3 +57,7 @@ def select_all_by_animal(animal):
         appointment = Appointment(result['date'], treatment, animal, result['total_bill'], result['id'])
         appointments.append(appointment)
     return appointments
+
+def calculate_bill(id):
+    bill = 0
+    sql = "SELECT * FROM treatments WHERE treatment_id = "

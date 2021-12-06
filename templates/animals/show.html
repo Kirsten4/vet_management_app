@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>{{ animal.name }}'s Notes:</h2>
-    
+    <h2>{{ animal.name }}'s Notes</h2>
+    <h3>Add New Note:</h3>
     <form action="/animals/{{ animal.id }}/notes" method="post">
         <div>
             <label for="date">Date: <span class="required_*">*</span></label><br>

@@ -71,8 +71,8 @@ def show(id):
     animals = animal_repository.select_all_by_owner(owner)
     return render_template("owners/show.html", owner=owner, animals=animals)
 
-@owners_blueprint.route("/owners/registered")
-def check_owner_registered():
-    owners = owner_repository.select_all()
-    return render_template("owners/registered.html", owners=owners)
+# @owners_blueprint.route("/owners/registered")
+# def check_owner_registered():
+#     owners = owner_repository.select_all()
+#     return render_template("owners/registered.html", owners=owners)
 

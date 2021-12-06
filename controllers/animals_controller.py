@@ -14,7 +14,8 @@ animals_blueprint = Blueprint("animals", __name__)
 def animals():
     animals = animal_repository.select_all()
     animals.sort(key=lambda x: x.name)
-    return render_template("animals/index.html", animals=animals)
+    checked_in_animals = animal_repository.all_animals_currently_in_practice()
+    return render_template("animals/index.html", animals=animals, checked_in_animals=checked_in_animals)
 
 # NEW
 # GET '/animals/new'
@@ -120,3 +121,4 @@ def create_note(id):
     note_repository.save(note)
     # url = "/animals/" + id + "/notes"
     return show(id)
+

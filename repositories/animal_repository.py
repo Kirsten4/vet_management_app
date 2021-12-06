@@ -92,3 +92,9 @@ def check_out(animal):
     sql = "UPDATE animals SET checked_out_time = %s WHERE id = %s"
     values = [animal.checked_out_time, animal.id]
     run_sql(sql, values)
+
+def all_animals_currently_in_practice():
+    # animals = []
+    sql = "SELECT animals.name, animals.checked_in_time, vets.name FROM animals INNER JOIN vets ON vets.id = animals.vet_id WHERE animals.checked_in_time IS NOT NULL AND animals.checked_out_time IS NULL"
+    results = run_sql(sql)
+    return results

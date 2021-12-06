@@ -41,3 +41,7 @@ def update(owner):
     values = [owner.name, owner.phone_number, owner.address, owner.email_address, owner.registered, owner.id]
     run_sql(sql, values)
 
+def reregister(owner):
+    sql = "UPDATE owners SET registered = %s WHERE id = %s"
+    values = [owner.registered, owner.id]
+    run_sql(sql, values)

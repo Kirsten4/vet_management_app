@@ -3,6 +3,14 @@
 {% block content %}
 <h1>Animals</h1>
 
+<p>{% for animal in checked_in_animals %}
+    <ul>
+        <li>
+            {{ animal[0] }}{{ animal[1] }}{{ animal[2] }}
+        </li>
+    </ul>
+{% endfor %}</p>
+
 <div class="submit-form"> 
     <a href="/animals/new">+ Register New Animal</a>
 </div>
