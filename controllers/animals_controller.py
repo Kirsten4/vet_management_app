@@ -2,7 +2,9 @@ from flask import Flask, render_template, request,redirect,url_for, Blueprint
 import repositories.animal_repository as animal_repository
 import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
+import repositories.note_repository as note_repository
 from models.animal import Animal
+from models.note import Note
 
 animals_blueprint = Blueprint("animals", __name__)
 
@@ -95,3 +97,26 @@ def check_out_animal(id):
     animal = animal_repository.select(id)
     animal_repository.check_out(animal)
     return redirect(url_for(".animals"))
+
+# SHOW ANIMAL NOTES
+@animals_blueprint.route("/animals/<id>/notes")
+def show(id):
+    animal = animal_repository.select(id)
+    notes = note_repository.select_all_notes_by_animal(animal)
+    return render_template("animals/show.html", notes=notes, animal=animal)
+
+# CREATE ANIMAL NOTES
+# POST '/animals/<id>/notes'
+@animals_blueprint.route("/animals/<id>/notes", methods=['POST'])
+def create_note(id):
+    date = request.form['date']
+    comment = request.form['comment']
+    if "follow_up" in request.form:
+        follow_up = True
+    else:
+        follow_up = False
+    animal = animal_repository.select(id)
+    note = Note(date, comment, follow_up, animal)
+    note_repository.save(note)
+    # url = "/animals/" + id + "/notes"
+    return show(id)

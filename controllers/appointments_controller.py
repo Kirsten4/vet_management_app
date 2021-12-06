@@ -66,3 +66,4 @@ def update_appointment(id):
 def delete_appointment(id):
     appointment_repository.delete(id)
     return redirect(url_for(".appointments"))
+

@@ -2,9 +2,11 @@ import pdb
 from models.owner import Owner
 from models.animal import Animal
 from models.vet import Vet
+from models.note import Note
 import repositories.owner_repository as owner_repository
 import repositories.animal_repository as animal_repository
 import repositories.vet_repository as vet_repository
+import repositories.note_repository as note_repository
 from datetime import date
 
 # Test delete_all()
@@ -49,17 +51,21 @@ animal_repository.save(animal_3)
 animal_4 = Animal("Maclean", date(2017,3,23), "bird", owner_1, "notes...", vet_1, "macleane.jpeg")
 animal_repository.save(animal_4)
 
+note_1 = Note("2021,12,3", "cast put on leg", True, animal_1)
+note_repository.save(note_1)
 
 # Test select_all()
 print(owner_repository.select_all())
 print(vet_repository.select_all())
 print(animal_repository.select_all())
+print(note_repository.select_all())
 
 
 # Test select(id)
 print(owner_repository.select(owner_2.id).name)
 print(vet_repository.select(vet_1.id).name)
 print(animal_repository.select(animal_4.id).name)
+print(note_repository.select(note_1.id).__dict__)
 
 
 # Test delete(id)
