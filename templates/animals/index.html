@@ -17,36 +17,49 @@
 
 
     {% for animal in animals %}
-        <div class="check-in-buttons">
-            <a href="/animals/{{animal.id}}/check_in" method="POST">Check In</a> 
-        </div>
-        <div class="check-in-buttons">
-            <a href="/animals/{{animal.id}}/check_out" method="POST">Check Out</a>
-        </div>
-
-        <div class="check-in-buttons">
-            <a href="/animals/{{animal.id}}/notes">Notes</a>
-        </div>
-            
-           
-            Name: {{ animal.name }}<br>
-            Date of Birth: {{ animal.date_of_birth }}<br>
-            Type: {{ animal.type_of_animal }}<br>
-            Owner: {{ animal.owner.name }} <br>
-            Notes: {{ animal.treatment_notes }} <br>
-            Vet: {{ animal.vet.name }} <br>
-            {% if animal.photo %}
-                <img src="/static/img/{{ animal.photo }}" alt="animal photo">  
-            {% else %}
-                <img src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
-            {% endif %} 
-            <form class="edit-form" action="/animals/{{animal.id}}/edit">
-                <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
-                </form>
         
-            <form class="delete-form" action="/animals/{{animal.id}}/delete" method="POST">
-                <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
-            </form>
+        
+
+        
+
+        <section class="animal-container">
+            <div id="heading-animal">
+                <h2>{{ animal.name }} the {{ animal.type_of_animal }}</h2>
+            </div>
+            <div>
+                {% if animal.photo %}
+                <img class="animal-photo" src="/static/img/{{ animal.photo }}" alt="animal photo">  
+            {% else %}
+                <img class="animal-photo"  src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
+            {% endif %} 
+            </div>
+            <div>Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
+            </div>   
+            <div>
+                Owner: {{ animal.owner.name }}
+            </div>
+            <div>
+                Vet: {{ animal.vet.name }}
+            </div>
+        <section class="animal-button">
+            <div>
+                <form action="/animals/{{animal.id}}/edit">
+                    <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
+                    </form>
+            </div>
+            <div>
+                <form  action="/animals/{{animal.id}}/delete" method="POST">
+                    <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
+                </form>
+            </div>
+
+            <div >
+                <a href="/animals/{{animal.id}}/notes">Notes</a>
+            </div>
+        </section>
+        </section>
+            
+            
         </div>
     {% endfor %}
 

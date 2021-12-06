@@ -3,7 +3,7 @@
 <header>
     <h2>Edit Animal</h2>
 </header>
-<form action="/animals/{{ animal.id }}" method="post">
+<form class="form-style-1" action="/animals/{{ animal.id }}" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" value="{{ animal.name }}" placeholder="eg Scooby Doo" required autofocus>

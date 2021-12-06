@@ -15,6 +15,8 @@
         <th>Total Bill</th>
         <th>Edit Appointment</th>
         <th>Delete Appointment</th>
+        <th>Check In</th>
+        <th>Check Out</th>
     </tr>
     
     {% for appointment in appointments %}
@@ -33,6 +35,16 @@
             <form class="animal-form" action="/appointments/{{appointment.id}}/delete" method="POST">
               <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
             </form>
+        </td>
+        <td>
+            <div class="check-in-buttons">
+                <a href="/animals/{{appointment.animal.id}}/check_in" method="POST">Check In</a> 
+            </div>
+        </td>
+        <td>
+            <div class="check-in-buttons">
+                <a href="/animals/{{appointment.animal.id}}/check_out" method="POST">Check Out</a>
+            </div>
         </td>
     </tr>
     {% endfor %}

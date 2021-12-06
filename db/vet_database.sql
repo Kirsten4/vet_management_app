@@ -32,7 +32,7 @@ CREATE TABLE treatments(
 CREATE TABLE animals(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    date_of_birth VARCHAR(255),
+    date_of_birth DATE,
     type_of_animal VARCHAR(255),
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
     treatment_notes TEXT,
