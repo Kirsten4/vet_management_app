@@ -185,7 +185,7 @@ h2 {
     box-sizing: border-box;
     background-color: rgb(214, 213, 210);
     width: 50%;
-    margin: 30px;
+    margin: auto;
     padding: 20px;
     box-shadow: 3px 3px 3px #888888;
 }
