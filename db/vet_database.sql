@@ -1,8 +1,9 @@
+DROP TABLE IF EXISTS appointments;
+DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS animals;
+DROP TABLE IF EXISTS treatments;
 DROP TABLE IF EXISTS owners;
 DROP TABLE IF EXISTS vets;
-DROP TABLE IF EXISTS notes;
-DROP TABLE IF EXISTS treatment;
 
 CREATE TABLE vets(
     id SERIAL PRIMARY KEY,
@@ -18,6 +19,14 @@ CREATE TABLE owners(
     address VARCHAR(255),
     email_address VARCHAR(255),
     registered BOOLEAN
+);
+
+CREATE TABLE treatments(
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(255),
+    price MONEY,
+    duration INT,
+    overnights INT
 );
 
 CREATE TABLE animals(
@@ -37,12 +46,21 @@ CREATE TABLE notes(
     id SERIAL PRIMARY KEY,
     date VARCHAR(255),
     comment TEXT,
-    follow_up BOOLEAN
+    follow_up BOOLEAN,
+    animal_id INT REFERENCES animals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE treatment(
+CREATE TABLE appointments(
     id SERIAL PRIMARY KEY,
-    description VARCHAR(255),
-    price MONEY,
-    duration INT
+    date VARCHAR(255),
+    treatment_id INT REFERENCES treatments(id),
+    animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
+    total_bill Money 
 );
+
+
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('General health check-up', 52.50, 20, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Vaccinations', 26.80, 10, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Keyhole surgery', 645.00, 90, 2);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Fix broken leg', 278.50, 45, 1);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Trim claws', 19.00, 15, 0);
