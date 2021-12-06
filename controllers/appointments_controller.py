@@ -37,37 +37,32 @@ def create_appointment():
     return redirect(url_for(".appointments"))
 
 # EDIT
-# GET '/animals/<id>/edit'
-@animals_blueprint.route("/animals/<id>/edit")
-def edit_animal(id):
-    owners = owner_repository.select_all() 
-    vets = vet_repository.select_all()
-    animal = animal_repository.select(id)
-    return render_template("animals/edit.html", animal=animal, owners=owners, vets=vets)
+# GET '/appointments/<id>/edit'
+@appointments_blueprint.route("/appointments/<id>/edit")
+def edit_appointment(id):
+    treatments = treatment_repository.select_all()
+    animals = animal_repository.select_all()
+    appointment = appointment_repository.select(id)
+    return render_template("appointments/edit.html", treatments=treatments, animals=animals, appointment=appointment)
 
 # UPDATE
-# PUT '/animals/<id>'
-@animals_blueprint.route("/animals/<id>", methods=['POST'])
-def update_animal(id):
-    name = request.form['name']
-    date_of_birth = request.form['date_of_birth']
-    type_of_animal = request.form['type_of_animal']
-    owner_id = request.form['owner_id']
-    treatment_notes = request.form['treatment_notes']
-    vet_id = request.form['vet_id']
-    owner = owner_repository.select(owner_id)
-    vet = vet_repository.select(vet_id)
-    place_holder_animal = animal_repository.select(id)
-    checked_in_time = place_holder_animal.checked_in_time
-    checked_out_time = place_holder_animal.checked_out_time
-    photo = request.form['photo']
-    animal = Animal(name, date_of_birth, type_of_animal, owner, treatment_notes, vet, photo, checked_in_time, checked_out_time, id)
-    animal_repository.update(animal)
-    return redirect(url_for(".animals"))
+# PUT '/appointments/<id>'
+@appointments_blueprint.route("/appointments/<id>", methods=['POST'])
+def update_appointment(id):
+    date = request.form['date']
+    treatemnt_id = request.form['treatment_id']
+    animal_id = request.form['animal_id']
+    treatment = treatment_repository.select(treatemnt_id)
+    animal = animal_repository.select(animal_id)
+    place_holder_appointment = appointment_repository.select(id)
+    total_bill = place_holder_appointment.total_bill
+    appointment = Appointment(date, treatment, animal, total_bill, id)
+    appointment_repository.update(appointment)
+    return redirect(url_for(".appointments"))
 
 # DELETE
-# DELETE '/animals/<id>'
-@animals_blueprint.route("/animals/<id>/delete", methods=['POST'])
-def delete_animal(id):
-    animal_repository.delete(id)
-    return redirect(url_for(".animals"))
+# DELETE '/appointments/<id>'
+@appointments_blueprint.route("/appointments/<id>/delete", methods=['POST'])
+def delete_appointment(id):
+    appointment_repository.delete(id)
+    return redirect(url_for(".appointments"))
