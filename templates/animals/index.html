@@ -18,7 +18,7 @@
         {% for animal in checked_in_animals %}
             <tr>
                 <td>{{ animal[0] }}</td>
-                <td>{{ animal[1] }}</td>
+                <td>{{ animal[1].strftime("%H:%M %d-%b-%Y") }}</td>
                 <td>{{ animal[2] }}</td>
                 <td>{{ animal[3] }}</td>
             </tr>

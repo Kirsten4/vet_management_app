@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <h2>Update Vet Details</h2>
+    <h2 class="centred-heading">Update Vet Details</h2>
 </header>
-<form action="/vets/{{ vet.id }}" method="post">
+<form class="form-style-1" action="/vets/{{ vet.id }}" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" value="{{ vet.name }}" placeholder="eg Joe Bloggs" required autofocus>
@@ -26,7 +26,8 @@
         <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
     </div>  
     {% endif %}
-
-    <button type="submit">Edit Vet</button>
+    <div class="submit-button">
+        <button type="submit">Edit Vet</button>
+    </div>
 </form>
 {% endblock content %}

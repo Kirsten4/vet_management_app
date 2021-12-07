@@ -21,7 +21,7 @@
     
     {% for appointment in appointments %}
     <tr>
-        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.date.strftime("%d %b %Y") }}</td>
         <td>{{ appointment.treatment.description }}</td>
         <td>{{ appointment.animal.name }}</td>
         <td>{{ appointment.total_bill }}</td>

@@ -38,8 +38,8 @@ CREATE TABLE animals(
     treatment_notes TEXT,
     vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
     photo VARCHAR(255),
-    checked_in_time VARCHAR(255),
-    checked_out_time VARCHAR(255)
+    checked_in_time TIMESTAMP,
+    checked_out_time TIMESTAMP
 );
 
 CREATE TABLE notes(
@@ -52,7 +52,7 @@ CREATE TABLE notes(
 
 CREATE TABLE appointments(
     id SERIAL PRIMARY KEY,
-    date VARCHAR(255),
+    date DATE,
     treatment_id INT REFERENCES treatments(id),
     animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
     total_bill Money 
