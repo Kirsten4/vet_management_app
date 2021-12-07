@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <h2>Enter New Owner Details</h2>
+    <h2 class="centred-heading">Enter New Owner Details</h2>
 </header>
-<form action="/owners" method="post">
+<form class="form-style-1" action="/owners" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" placeholder="eg Joe Bloggs" required autofocus>
@@ -38,7 +38,9 @@
         <label for="email_address">Email: <span class="required_*">*</span></label><br>
         <input type="email" id="email_address" name="email_address" placeholder="eg joe@fake.com" required>
     </div>
-
-    <button type="submit">Add Owner</button>
+    <div class="submit-button">
+        <button type="submit">Add Owner</button>
+    </div>
+    
 </form>
 {% endblock content %}

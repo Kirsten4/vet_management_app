@@ -40,9 +40,9 @@ body{
 
 #content-1 {
     grid-area: content-1;
-    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
     background-color: white;
-    padding-right: 150px;
     overflow-y: scroll;
 }
 

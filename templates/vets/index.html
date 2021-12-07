@@ -15,7 +15,7 @@
             </h3>
         </div>
         <div id="qualified-vet">
-            Qualified: {{ vet.qualified_date.strftime("%d %b %Y") }}
+           <b> Qualified:</b> {{ vet.qualified_date.strftime("%d %b %Y") }}
         </div>
          <div id="photo-vet">  
             {% if vet.photo %}
@@ -26,14 +26,14 @@
         </div> 
         <div id="buttons-vet">
             <form action="/vets/{{vet.id}}/edit">
-                <label for="edit_button">Edit Vet:</label><br>
+                <label for="edit_button"><b>Edit Vet</b></label><br>
                 <button name="edit_button">
                     <i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i>
                 </button> 
             </form>
         
             <form action="/vets/{{vet.id}}/delete" method="POST">
-                <label for="delete_button">Delete Vet:</label><br>
+                <label for="delete_button"><b>Delete Vet</b></label><br>
                 <button name="delete_button">
                     <i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i>
                 </button> 
