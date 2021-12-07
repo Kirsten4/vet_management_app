@@ -15,25 +15,29 @@
         <div>
             <button class="submit-button-2" type="submit">Add Note</button>
         </div>
-        
     </form>
 
     <hr>
 
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Comment</th>
-            <th>Follow Up</th>
-        </tr>
-        
-        {% for note in notes %}
-        <tr>
-            <td>{{ note.date.strftime("%d %b %Y") }}</td>
-            <td>{{ note.comment }}</td>
-            <td>{{ note.follow_up }}</td>
-        </tr>
-        {% endfor %}
-        
-    </table>
+    {% if notes|length > 0 %}
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Follow Up</th>
+            </tr>
+            
+            {% for note in notes %}
+            <tr>
+                <td>{{ note.date.strftime("%d %b %Y") }}</td>
+                <td>{{ note.comment }}</td>
+                <td>{{ note.follow_up }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    {% else %}
+        <p class="warning">Animal does not currently have any notes!</p>
+    {% endif %}
+    
 {% endblock content %}

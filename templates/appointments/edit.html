@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <h2>Edit Appointment</h2>
+    <h2 class="centred-heading">Edit Appointment</h2>
 </header>
-<form action="/appointments/{{appointment.id}}" method="post">
+<form class="form-style-1" action="/appointments/{{appointment.id}}" method="post">
     <div>
         <label for="date">Date: <span class="required_*">*</span></label><br>
         <input type="date" id="date" name="date" value="{{ appointment.date }}" required>
     </div>
 
     <div>
-        <label for="treatment">Treatment:</label>
+        <label for="treatment">Treatment:</label><br>
         <select id="treatment" name="treatment_id">
           {% for treatment in treatments  %}
               <option value="{{treatment.id}}" {% if treatment.description == appointment.treatment.description %}
@@ -21,7 +21,7 @@
     </div>
 
     <div>
-        <label for="animal">Animal:</label>
+        <label for="animal">Animal:</label><br>
         <select id="animal" name="animal_id" >
           {% for animal in animals  %}
               <option value="{{animal.id}}" {% if animal.name == appointment.animal.name %}
@@ -30,7 +30,9 @@
           {% endfor %}
         </select>
     </div>
-
-    <button type="submit">Update Appointment</button>
+    <div class="submit-button">
+        <button type="submit">Update Appointment</button>
+    </div>
+   
 </form>
 {% endblock content %}

@@ -21,6 +21,7 @@ th {
     font-size: 20px;
     padding: 5px;
 }
+
 td {
     padding: 5px;
 }
@@ -30,14 +31,6 @@ td form {
     justify-content: center;
     padding: 10px;
 }
-
-/* .animal-container {
-    box-shadow: teal;
-    width: 50%;
-    justify-items: center;
-    justify-self: center;
-    justify-content: center;
-} */
 
 .animal-photo{
     border-radius: 20%;
@@ -159,4 +152,12 @@ td form {
     background-color: #dddad7;
     border: solid 3px rgb(20, 63, 77);
     border-radius: 8px;
+}
+
+.td-centre {
+    text-align: center;
+}
+
+table {
+    width: 90%;
 }
