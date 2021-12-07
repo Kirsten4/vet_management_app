@@ -8,23 +8,27 @@
     </div>
 <hr>
 <h3>Animals currently in practice:</h3>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Check-in Time</th>
-            <th>Type of Appointment</th>
-            <th>Vet</th>
-        </tr>
-        {% for animal in checked_in_animals %}
+    {% if checked_in_animals|length > 0%}
+        <table>
             <tr>
-                <td>{{ animal[0] }}</td>
-                <td>{{ animal[1].strftime("%H:%M %d-%b-%Y") }}</td>
-                <td>{{ animal[2] }}</td>
-                <td>{{ animal[3] }}</td>
+                <th>Name</th>
+                <th>Check-in Time</th>
+                <th>Type of Appointment</th>
+                <th>Vet</th>
             </tr>
-        {% endfor %}
-            
-    </table>    
+            {% for animal in checked_in_animals %}
+                <tr>
+                    <td>{{ animal[0] }}</td>
+                    <td>{{ animal[1].strftime("%H:%M %d-%b-%Y") }}</td>
+                    <td>{{ animal[2] }}</td>
+                    <td>{{ animal[3] }}</td>
+                </tr>
+            {% endfor %}
+                
+        </table>  
+    {% else %}
+        <p class="warning">There are no animals checked-in yet!</p>
+    {% endif %}  
 <hr>
 
     {% for animal in animals %}
