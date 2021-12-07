@@ -1,0 +1,12 @@
+.form-style-1 {
+    display: block;
+    box-sizing: border-box;
+    background-color: rgb(214, 213, 210);
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 3px 3px 3px #888888;
+}
+input[type=text] {
+    width: 100%;
+}

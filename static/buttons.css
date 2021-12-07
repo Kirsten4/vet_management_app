@@ -1,0 +1,52 @@
+a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.nav-button {
+    margin-top: 20px;
+    background-color: #48a3af;
+    padding: 10px;
+    border-radius: 8px;
+    border: rgb(20, 63, 77) solid 2px;
+    width: 110px;
+    font-weight: bolder;
+    text-align: center;
+    box-shadow: 3px 3px 3px #888888 ;
+}
+
+.nav-button a {
+    color: white;
+    text-shadow: rgb(20, 63, 77) 1px 1px;
+}
+
+.submit-form a {
+    background-color: #155765;
+    padding: 10px;
+    border-radius: 8px;
+    border: black solid 2px;
+    box-shadow: 3px 3px 3px #888888 ;
+}
+
+.submit-form {
+    margin-bottom: 30px;
+}
+
+.check-in-buttons{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    background-color: #48a3af;
+    padding: 10px;
+    border-radius: 8px;
+    border: rgb(20, 63, 77) solid 2px;
+    width: 80px;
+    font-weight: bolder;
+    text-align: center;
+    box-shadow: 3px 3px 3px #888888 ;
+}

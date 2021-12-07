@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <h2>Register New Animal</h2>
+    <h2 class="centred-heading">Register New Animal</h2>
 </header>
-<form action="/animals" method="post">
+<form class="form-style-1" action="/animals" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" placeholder="eg Scooby Doo" required autofocus>
