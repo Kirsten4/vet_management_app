@@ -2,11 +2,11 @@
 
 {% block content %}
 <h1>Animals</h1>
-
+<h3>Animals in practice:</h3>
 <p>{% for animal in checked_in_animals %}
     <ul>
         <li>
-            {{ animal[0] }}{{ animal[1] }}{{ animal[2] }}
+            {{ animal[0] }}{{ animal[1] }}{{ animal[2] }}{{ animal[3] }}
         </li>
     </ul>
 {% endfor %}</p>
