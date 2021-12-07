@@ -2,25 +2,23 @@
 {% block content %}
     <h2>{{ animal.name }}'s Notes</h2>
     <h3>Add New Note:</h3>
-    <form action="/animals/{{ animal.id }}/notes" method="post">
-        <div>
-            <label for="date">Date: <span class="required_*">*</span></label><br>
-            <input type="date" id="date" name="date" required autofocus>
-        </div>
-    
+    <form class="form-style-2" action="/animals/{{ animal.id }}/notes" method="post">
         <div>
             <label for="comment">Comment: <span class="required_*">*</span></label><br>
-            <input type="text" id="comment" name="comment" placeholder="Treatment..." required>
+            <textarea name="comment" id="comment" cols="30" rows="2"></textarea>
         </div>
     
         <div>
             <label for="follow_up">Follow-up Required?</label>
             <input type="checkbox" value="1" name="follow_up" id="follow_up">
         </div>
-    
-        <button type="submit">Add Note</button>
+        <div>
+            <button class="submit-button-2" type="submit">Add Note</button>
+        </div>
+        
     </form>
 
+    <hr>
 
     <table>
         <tr>
@@ -31,7 +29,7 @@
         
         {% for note in notes %}
         <tr>
-            <td>{{ note.date }}</td>
+            <td>{{ note.date.strftime("%d %b %Y") }}</td>
             <td>{{ note.comment }}</td>
             <td>{{ note.follow_up }}</td>
         </tr>

@@ -7,7 +7,7 @@
         <a href="/animals/new">+ Register New Animal</a>
     </div>
 <hr>
-<h3>Animals in practice:</h3>
+<h3>Animals currently in practice:</h3>
     <table>
         <tr>
             <th>Name</th>
@@ -25,55 +25,45 @@
         {% endfor %}
             
     </table>    
-    <!-- .strftime("%d %b %Y") -->
 <hr>
 
     {% for animal in animals %}
-        
-        
-
-        
-
-        <section class="animal-container">
-            <div id="heading-animal">
-                <h2>{{ animal.name }} the {{ animal.type_of_animal }}</h2>
+        <section id="animal-container">
+            <div id="header-animal">
+                <h3>
+                    {{ animal.name }} the {{ animal.type_of_animal }}
+                </h3>
             </div>
-            <div>
+            <div id="animal-photo-cont">
                 {% if animal.photo %}
-                <img class="animal-photo" src="/static/img/{{ animal.photo }}" alt="animal photo">  
-            {% else %}
-                <img class="animal-photo"  src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
-            {% endif %} 
+                    <img class="animal-photo" src="/static/img/{{ animal.photo }}" alt="animal photo">  
+                {% else %}
+                    <img class="animal-photo"  src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
+                {% endif %} 
             </div>
-            <div>Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
-            </div>   
-            <div>
+            
+            <div id="animal-info">
+                Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
+                <br>
                 Owner: {{ animal.owner.name }}
-            </div>
-            <div>
+                <br>
                 Vet: {{ animal.vet.name }}
             </div>
-        <section class="animal-button">
-            <div>
+            <div id="buttons-animal">
                 <form action="/animals/{{animal.id}}/edit">
                     <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
-                    </form>
-            </div>
-            <div>
+                </form>
+            
                 <form  action="/animals/{{animal.id}}/delete" method="POST">
                     <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
                 </form>
+                <div class="submit-form">
+                    <a href="/animals/{{animal.id}}/notes">Notes</a>
+                </div>
+                
             </div>
+        </section>
 
-            <div >
-                <a href="/animals/{{animal.id}}/notes">Notes</a>
-            </div>
-        </section>
-        </section>
-            
-            
-        </div>
     {% endfor %}
-
 
 {% endblock content %}

@@ -31,13 +31,13 @@ td form {
     padding: 10px;
 }
 
-.animal-container {
+/* .animal-container {
     box-shadow: teal;
     width: 50%;
     justify-items: center;
     justify-self: center;
     justify-content: center;
-}
+} */
 
 .animal-photo{
     border-radius: 20%;
@@ -93,6 +93,13 @@ td form {
     object-fit: cover;
 }
 
+.vet-photo-small{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
 
 .animal-button {
     display: flex;
@@ -100,3 +107,56 @@ td form {
     background-color: rgb(164, 168, 168);
 }
 
+.warning {
+    color: rgb(155, 32, 32);
+    font-weight: 800;
+}
+
+.warning img{
+    padding: 20px;
+}
+
+.animal-link a{
+    color:rgb(20, 63, 77);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#header-animal{
+    grid-area: header-animal;
+    font-size: 30px;
+}
+
+#animal-photo-cont{
+    display: flex;
+    grid-area: animal-photo-cont;
+    justify-content: center;
+}
+
+#buttons-animal {
+    display: flex;
+    grid-area: buttons-animal;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+#animal-info {
+    grid-area: animal-info;
+    margin-top: 20px;
+}
+
+#animal-container{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 70%;
+    display: grid;
+    grid-template-areas: 
+    'header-animal animal-photo-cont'
+    'animal-info animal-photo-cont'
+    'buttons-animal animal-photo-cont';
+    background-color: #dddad7;
+    border: solid 3px rgb(20, 63, 77);
+    border-radius: 8px;
+}

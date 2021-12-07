@@ -5,8 +5,8 @@ import repositories.vet_repository as vet_repository
 from datetime import date, datetime, timezone
 
 def save(animal):
-    sql = "INSERT INTO animals (name, date_of_birth, type_of_animal, owner_id, treatment_notes, vet_id, photo) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.treatment_notes, animal.vet.id, animal.photo]
+    sql = "INSERT INTO animals (name, date_of_birth, type_of_animal, owner_id, vet_id, photo) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.vet.id, animal.photo]
     results = run_sql(sql,values)
     id = results[0]['id']
     animal.id = id
@@ -19,7 +19,7 @@ def select_all():
     for row in results:
         owner = owner_repository.select(row['owner_id'])
         vet = vet_repository.select(row['vet_id'])
-        animal = Animal(row['name'], row['date_of_birth'], row['type_of_animal'], owner, row['treatment_notes'], vet, row['photo'], row['checked_in_time'], row['checked_out_time'], row['id'])
+        animal = Animal(row['name'], row['date_of_birth'], row['type_of_animal'], owner, vet, row['photo'], row['checked_in_time'], row['checked_out_time'], row['id'])
         animals.append(animal)
     return animals
 
@@ -35,7 +35,7 @@ def select(id):
     if result is not None:
         owner = owner_repository.select(result['owner_id'])
         vet = vet_repository.select(result['vet_id'])
-        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
     return animal
 
 def delete(id):
@@ -44,8 +44,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(animal):
-    sql = "UPDATE animals SET (name, date_of_birth, type_of_animal, owner_id, treatment_notes, vet_id, photo) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.treatment_notes, animal.vet.id, animal.photo, animal.id]
+    sql = "UPDATE animals SET (name, date_of_birth, type_of_animal, owner_id, vet_id, photo) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [animal.name, animal.date_of_birth, animal.type_of_animal, animal.owner.id, animal.vet.id, animal.photo, animal.id]
     run_sql(sql, values)
 
 def select_all_by_vet(vet):
@@ -55,7 +55,7 @@ def select_all_by_vet(vet):
     results = run_sql(sql,values)
     for result in results:
         owner = owner_repository.select(result['owner_id'])
-        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
         animals.append(animal)
     return animals
 
@@ -66,7 +66,7 @@ def select_all_by_owner(owner):
     results = run_sql(sql,values)
     for result in results:
         vet = vet_repository.select(result['vet_id'])
-        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, result['treatment_notes'], vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
+        animal = Animal(result['name'], result['date_of_birth'], result['type_of_animal'], owner, vet, result['photo'], result['checked_in_time'], result['checked_out_time'], result['id'])
         animals.append(animal)
     return animals
 

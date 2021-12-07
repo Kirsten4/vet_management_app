@@ -39,19 +39,19 @@ vet_repository.save(vet_2)
 vet_3 = Vet("James Herriot", date(1939,12,14))
 vet_repository.save(vet_3)
 
-animal_1 = Animal("Juneau", date(2011,11,14), "dog", owner_1, "notes...", vet_2, "juneau.jpeg")
+animal_1 = Animal("Juneau", date(2011,11,14), "dog", owner_1, vet_2, "juneau.jpeg")
 animal_repository.save(animal_1)
 
-animal_2 = Animal("Blue", date(2015,3,17), "rabbit", owner_2, "notes...", vet_1, "blue.jpeg")
+animal_2 = Animal("Blue", date(2015,3,17), "rabbit", owner_2, vet_1, "blue.jpeg")
 animal_repository.save(animal_2)
 
-animal_3 = Animal("Plunkett", date(2017,2,13), "bird", owner_1, "notes...", vet_1, "Plunkett.jpeg")
+animal_3 = Animal("Plunkett", date(2017,2,13), "bird", owner_1, vet_1, "Plunkett.jpeg")
 animal_repository.save(animal_3)
 
-animal_4 = Animal("Maclean", date(2017,3,23), "bird", owner_1, "notes...", vet_1, "macleane.jpeg")
+animal_4 = Animal("Maclean", date(2017,3,23), "bird", owner_1, vet_1, "macleane.jpeg")
 animal_repository.save(animal_4)
 
-animal_5 = Animal("Plunkett", date(2017,2,13), "bird", owner_1, "notes...", vet_1, "Plunkett.jpeg")
+animal_5 = Animal("Plunkett", date(2017,2,13), "bird", owner_1, vet_1, "Plunkett.jpeg")
 animal_repository.save(animal_5)
 
 note_1 = Note("2021,12,3", "cast put on leg", True, animal_1)

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>{{ owner.name }}'s Animals:</h2>
+    <p>Click to view animal's notes</p>
     {% for animal in animals %}
         <ul>
-            <li>
-                {{ animal.name }} the {{ animal.type_of_animal }}
+            <li class="animal-link">
+                <a  href="/animals/{{animal.id}}/notes">{{ animal.name }}</a> the {{ animal.type_of_animal }}
+                
             </li>
         </ul>
     {% endfor %}

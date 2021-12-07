@@ -35,7 +35,6 @@ CREATE TABLE animals(
     date_of_birth DATE,
     type_of_animal VARCHAR(255),
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
-    treatment_notes TEXT,
     vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
     photo VARCHAR(255),
     checked_in_time TIMESTAMP,
@@ -44,7 +43,7 @@ CREATE TABLE animals(
 
 CREATE TABLE notes(
     id SERIAL PRIMARY KEY,
-    date VARCHAR(255),
+    date DATE,
     comment TEXT,
     follow_up BOOLEAN,
     animal_id INT REFERENCES animals(id) ON DELETE CASCADE
@@ -66,6 +65,6 @@ INSERT INTO treatments (description, price, duration, overnights) VALUES ('Fix b
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('Trim claws', 19.00, 15, 0);
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('Flea treatment', 32.50, 5, 0);
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('Blood test', 36.00, 10, 0);
-INSERT INTO treatments (description, price, duration, overnights) VALUES ('Hip replacement', 3500.00, 180, 2);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('Hip replacement', 3500.00, 180, 5);
 INSERT INTO treatments (description, price, duration, overnights) VALUES ('MRI scan', 2000.00, 30, 0);
-INSERT INTO treatments (description, price, duration, overnights) VALUES ('Xray', 350.00, 10, 0);
+INSERT INTO treatments (description, price, duration, overnights) VALUES ('X-ray', 350.00, 10, 0);

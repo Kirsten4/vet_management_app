@@ -70,3 +70,10 @@ button {
     padding: 10px;    
     border-radius: 4px;
 }
+
+.submit-button-2{
+    background-color: rgb(20, 63, 77);
+    color: white;
+    padding: 10px;    
+    border-radius: 4px;
+}

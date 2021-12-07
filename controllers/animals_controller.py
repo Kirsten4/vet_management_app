@@ -36,13 +36,12 @@ def create_animal():
     date_of_birth = request.form['date_of_birth']
     type_of_animal = request.form['type_of_animal']
     owner_id = request.form['owner_id']
-    treatment_notes = request.form['treatment_notes']
     owner = owner_repository.select(owner_id)
     vets = vet_repository.select_all()
     vet = animal_repository.assign_vet_to_animal(vets)
     photo = request.form['photo']
     if owner.registered:
-        animal = Animal(name, date_of_birth,type_of_animal, owner, treatment_notes, vet, photo)
+        animal = Animal(name, date_of_birth,type_of_animal, owner, vet, photo)
         animal_repository.save(animal)
         return redirect(url_for(".animals"))
     else:
@@ -65,7 +64,6 @@ def update_animal(id):
     date_of_birth = request.form['date_of_birth']
     type_of_animal = request.form['type_of_animal']
     owner_id = request.form['owner_id']
-    treatment_notes = request.form['treatment_notes']
     vet_id = request.form['vet_id']
     owner = owner_repository.select(owner_id)
     vet = vet_repository.select(vet_id)
@@ -73,7 +71,7 @@ def update_animal(id):
     checked_in_time = place_holder_animal.checked_in_time
     checked_out_time = place_holder_animal.checked_out_time
     photo = request.form['photo']
-    animal = Animal(name, date_of_birth, type_of_animal, owner, treatment_notes, vet, photo, checked_in_time, checked_out_time, id)
+    animal = Animal(name, date_of_birth, type_of_animal, owner, vet, photo, checked_in_time, checked_out_time, id)
     animal_repository.update(animal)
     return redirect(url_for(".animals"))
 
@@ -111,7 +109,7 @@ def show(id):
 # POST '/animals/<id>/notes'
 @animals_blueprint.route("/animals/<id>/notes", methods=['POST'])
 def create_note(id):
-    date = request.form['date']
+    date = datetime.today()
     comment = request.form['comment']
     if "follow_up" in request.form:
         follow_up = True

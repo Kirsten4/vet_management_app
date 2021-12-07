@@ -5,7 +5,7 @@ from models.treatment import Treatment
 class TestTreatment(unittest.TestCase):
     
     def setUp(self):
-        self.treatment = Treatment("kennel cough vaccine", 15.80, 5, 9)
+        self.treatment = Treatment("kennel cough vaccine", 15.80, 5, 0, 9)
 
     def test_treatment_has_description(self):
         self.assertEqual("kennel cough vaccine", self.treatment.description)
@@ -15,6 +15,9 @@ class TestTreatment(unittest.TestCase):
 
     def test_treatment_has_duration(self):
         self.assertEqual(5, self.treatment.duration)
+
+    def test_treatment_has_overnights(self):
+        self.assertEqual(0, self.treatment.overnights)
 
     def test_treatment_has_id(self):
         self.assertEqual(9, self.treatment.id) 

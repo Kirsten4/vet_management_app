@@ -44,6 +44,7 @@ body{
     padding-right: 40px;
     background-color: white;
     overflow-y: scroll;
+    padding-bottom: 30px;
 }
 
 #logo-1 {
