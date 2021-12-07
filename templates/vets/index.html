@@ -15,7 +15,8 @@
             </h3>
         </div>
         <div id="qualified-vet">
-           <b> Qualified:</b> {{ vet.qualified_date.strftime("%d %b %Y") }}
+           <b> Qualified:</b> {{ vet.qualified_date.strftime("%d %b %Y") }} <br>
+           <b>Number of Animals Assigned:</b> {{ animal_dict[vet.name] }}
         </div>
          <div id="photo-vet">  
             {% if vet.photo %}

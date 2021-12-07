@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from models.vet import Vet
 import repositories.vet_repository as vet_repository
+import repositories.animal_repository as animal_repository
 
 vets_blueprint = Blueprint("vets", __name__)
 
@@ -9,8 +10,14 @@ vets_blueprint = Blueprint("vets", __name__)
 @vets_blueprint.route("/vets")
 def vets():
     vets = vet_repository.select_all()
+    print(vets)
+    animal_dict = {}
+    for vet in vets:
+        number_animals = len(animal_repository.select_all_by_vet(vet))
+        animal_dict[vet.name] = number_animals
+    print(animal_dict)
     vets.sort(key=lambda x: x.name)
-    return render_template("vets/index.html", vets=vets)
+    return render_template("vets/index.html", vets=vets, animal_dict=animal_dict)
 
 # NEW
 # GET '/vets/new'

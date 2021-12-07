@@ -16,21 +16,41 @@
 
     <div>
         <label for="type_of_animal">Type of Animal: <span class="required_*">*</span></label><br>
-        <input type="radio" id="dog" name="type_of_animal" value="Dog">
-        <label for="dog">Dog</label>
-        <input type="radio" id="cat" name="type_of_animal" value="Cat">
-        <label for="cat">Cat</label>
-        <input type="radio" id="rabbit" name="type_of_animal" value="Rabbit">
-        <label for="rabbit">Rabbit</label>
-        <input type="radio" id="hamster" name="type_of_animal" value="Hamster">
-        <label for="hamster">Hamster</label>
-        <input type="radio" id="bird" name="type_of_animal" value="Bird">
-        <label for="bird">Bird</label>
-        <input type="radio" id="snake" name="type_of_animal" value="Snake">
-        <label for="snake">Snake</label>
-        <input type="radio" id="turtle" name="type_of_animal" value="Turtle">
-        <label for="turtle">Turtle</label>
     </div>
+    <section class="radio-container">   
+        <div>
+            <input type="radio" id="dog" name="type_of_animal" value="Dog">
+            <label for="dog">Dog</label>
+        </div>
+        <div>
+            <input type="radio" id="cat" name="type_of_animal" value="Cat">
+            <label for="cat">Cat</label>
+        </div>
+        <div>
+            <input type="radio" id="rabbit" name="type_of_animal" value="Rabbit">
+            <label for="rabbit">Rabbit</label>
+        </div>
+        <div>
+            <input type="radio" id="hamster" name="type_of_animal" value="Hamster">
+            <label for="hamster">Hamster</label>
+        </div>
+        <div>
+            <input type="radio" id="bird" name="type_of_animal" value="Bird">
+            <label for="bird">Bird</label>
+        </div>
+        <div>
+            <input type="radio" id="snake" name="type_of_animal" value="Snake">
+            <label for="snake">Snake</label>
+        </div>
+        <div>
+            <input type="radio" id="turtle" name="type_of_animal" value="Turtle">
+            <label for="turtle">Turtle</label>
+        </div>
+        <div>
+            <input type="radio" id="chinchilla" name="type_of_animal" value="Chinchilla">
+            <label for="Chinchilla">Chinchilla</label>
+        </div>
+    </section>
 
     <div>
         <label for="owner">Owner:</label>
@@ -44,7 +64,7 @@
     <div>
         <label for="vet">Vet:</label>
         <p id="vet" >
-            Auto-selected vet: {{ vet.name }}
+            <b> Auto-selected vet:</b> {{ vet.name }}
         </p>
     </div>
 
@@ -52,7 +72,9 @@
         <label for="photo">Select Photo:</label><br>
         <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" >
     </div>
-
-    <button type="submit">Register Animal</button>
+    <div class="submit-button">
+        <button type="submit">Register Animal</button>
+    </div>
+    
 </form>
 {% endblock content %}

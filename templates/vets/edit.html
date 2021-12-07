@@ -19,10 +19,6 @@
             Photo is already in the system! <br>
             <img class="vet-photo-small" src="/static/img/{{ vet.photo }}" alt="vet photo">
         </div> 
-        <div>
-            <label for="photo">Select Different Photo (optional):</label><br>
-            <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
-        </div>  
     {% else %}
     <div>
         <label for="photo">Select Photo (optional):</label><br>
@@ -34,3 +30,5 @@
     </div>
 </form>
 {% endblock content %}
+
+

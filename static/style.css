@@ -161,3 +161,20 @@ td form {
 table {
     width: 90%;
 }
+
+.radio-container{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+}
+
+.radio-container div {
+    width: 20%;
+    margin: 0px;
+    min-width: 80px;
+}
+
+.radio-container div label {
+    font-weight: 300;
+    font-size: 16px;
+}

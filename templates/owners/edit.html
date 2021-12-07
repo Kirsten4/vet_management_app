@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="/owners/{{ owner.id }}" method="post">
+<header>
+    <h2 class="centred-heading">Edit Owner</h2>
+</header>
+<form class="form-style-1" action="/owners/{{ owner.id }}" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
         <input type="text" id="name" name="name" value="{{ owner.name }}" placeholder="eg Joe Bloggs" required autofocus>
@@ -46,7 +49,9 @@
             checked = "checked"
         {% endif %} >
     </div>
-
-    <button type="submit">Update Owner</button>
+    <div class="submit-button">
+        <button type="submit">Update Owner</button>
+    </div>
+    
 </form>
 {% endblock content %}

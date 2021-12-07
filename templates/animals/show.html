@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>{{ animal.name }}'s Notes</h2>
-    <h3>Add New Note:</h3>
+    
     <form class="form-style-2" action="/animals/{{ animal.id }}/notes" method="post">
+        <h3>Add New Note:</h3>
         <div>
             <label for="comment">Comment: <span class="required_*">*</span></label><br>
-            <textarea name="comment" id="comment" cols="30" rows="2"></textarea>
+            <textarea name="comment" id="comment" cols="35" rows="3"></textarea>
         </div>
     
         <div>
@@ -37,7 +38,7 @@
             
         </table>
     {% else %}
-        <p class="warning">Animal does not currently have any notes!</p>
+        <p class="warning">{{ animal.name }} does not currently have any notes!</p>
     {% endif %}
     
 {% endblock content %}
