@@ -8,8 +8,6 @@ body{
 
 #header-1 {
     grid-area: header-1;
-    /* background-color: #4D2C3D; */
-    background-color: rgb(20, 63, 77);
     color: white;
     display: flex;
     align-items: center;
@@ -20,12 +18,11 @@ body{
     margin: 0px;
     font-family: 'Acme', sans-serif;
     font-size: 45px;
+    min-width: 700px;
 }
 
 #footer-1 {
     grid-area: footer-1;
-    /* background-color: #4D2C3D; */
-    background-color: rgb(20, 63, 77);
     color: white;
     display: flex;
     align-items: center;
@@ -43,13 +40,15 @@ body{
 
 #content-1 {
     grid-area: content-1;
-    padding: 20px;
+    padding: 30px;
     background-color: white;
+    padding-right: 150px;
 }
 
 #logo-1 {
     grid-area: logo-1;
-    background-color: rgb(20, 63, 77);
+    align-self: center;
+    justify-self: center;
 }
 
 #grid {
@@ -58,7 +57,7 @@ body{
     '. header-1 logo-1'
     'nav-bar content-1 content-1'
     'footer-1 footer-1 footer-1';
-    grid-template-columns: 150px 7fr 150px;
+    grid-template-columns: 170px 7fr 170px;
     grid-template-rows: 1.5fr 8fr 0.5fr;
 }
 
@@ -68,14 +67,17 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 .nav-button {
     margin-top: 20px;
     background-color: #48a3af;
-    color:rgb(20, 63, 77);
     padding: 10px;
     border-radius: 8px;
     border: rgb(20, 63, 77) solid 2px;
-    width: 80px;
+    width: 110px;
     font-weight: bolder;
     text-align: center;
     box-shadow: 3px 3px 3px #888888 ;
@@ -85,8 +87,10 @@ a:-webkit-any-link {
     background-color: #155765;
     padding: 10px;
     border-radius: 8px;
+    border: black solid 2px;
+    box-shadow: 3px 3px 3px #888888 ;
 }
-
+/* ### */
 .submit-form {
     margin-bottom: 30px;
 }
@@ -100,13 +104,15 @@ img {
     max-height: 100px;
 }
 
-.home-container {
+#home-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    
+    align-content: space-around;
+    height: 60%;  
 }
-.home-container div {
+
+#home-container div {
     display: flex;
     background-color: #7bcad4;
     border: rgb(20, 63, 77) solid 3px;
@@ -118,17 +124,20 @@ img {
     text-align: center;
     font-size: 30px;
     box-shadow: 3px 3px 3px #888888 ;
+    margin: 20px;
 }
 
-.home-container div a {
+#home-container div a {
     color: rgb(20, 63, 77);
     font-weight: 900;
     text-shadow: white 1px 1px;
+    
 }
 
 h2 {
     text-align: center;
     font-size: 36px;
+    margin-bottom: 50px;
 }
 
 .nav-button a {
