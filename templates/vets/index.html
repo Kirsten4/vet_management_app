@@ -26,13 +26,15 @@
         </div> 
         <div id="buttons-vet">
             <form action="/vets/{{vet.id}}/edit">
-                <button>
+                <label for="edit_button">Edit Vet:</label><br>
+                <button name="edit_button">
                     <i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i>
                 </button> 
             </form>
         
             <form action="/vets/{{vet.id}}/delete" method="POST">
-                <button>
+                <label for="delete_button">Delete Vet:</label><br>
+                <button name="delete_button">
                     <i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i>
                 </button> 
             </form>

@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.animal import Animal
 import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 def save(animal):
     sql = "INSERT INTO animals (name, date_of_birth, type_of_animal, owner_id, treatment_notes, vet_id, photo) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
@@ -80,7 +80,9 @@ def assign_vet_to_animal(vets):
     return selected_vet
 
 def check_in(animal):
-    animal.checked_in_time = datetime.now(timezone.utc)
+    # animal.checked_in_time = datetime.now(timezone.utc)
+    animal.checked_in_time = datetime.now()
+    print(animal.checked_in_time)
     animal.checked_out_time = None
     sql = "UPDATE animals SET (checked_in_time, checked_out_time) = (%s,%s) WHERE id = %s"
     values = [animal.checked_in_time, animal.checked_out_time, animal.id]

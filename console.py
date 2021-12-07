@@ -33,7 +33,7 @@ owner_repository.save(owner_3)
 vet_1 = Vet("Noel Fitzpatrick", date(1990, 6, 10), "Noel-Fitzpatrick.jpeg")
 vet_repository.save(vet_1)
 
-vet_2 = Vet("James Herriot", date(1939,12,14))
+vet_2 = Vet("James Herriot", date(1939,12,14), "James Herriot.jpeg")
 vet_repository.save(vet_2)
 
 vet_3 = Vet("James Herriot", date(1939,12,14))
@@ -50,6 +50,9 @@ animal_repository.save(animal_3)
 
 animal_4 = Animal("Maclean", date(2017,3,23), "bird", owner_1, "notes...", vet_1, "macleane.jpeg")
 animal_repository.save(animal_4)
+
+animal_5 = Animal("Plunkett", date(2017,2,13), "bird", owner_1, "notes...", vet_1, "Plunkett.jpeg")
+animal_repository.save(animal_5)
 
 note_1 = Note("2021,12,3", "cast put on leg", True, animal_1)
 note_repository.save(note_1)
