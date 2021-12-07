@@ -43,6 +43,7 @@ body{
     padding: 30px;
     background-color: white;
     padding-right: 150px;
+    overflow-y: scroll;
 }
 
 #logo-1 {

@@ -30,7 +30,7 @@ owner_repository.save(owner_2)
 owner_3 = Owner("Kirsten", "01419876543", "32 Sauchiehall Street, , G2 3LW", "kirsten@fake.com")
 owner_repository.save(owner_3)
 
-vet_1 = Vet("Noel Fitzpatrick", date(1990, 6, 10))
+vet_1 = Vet("Noel Fitzpatrick", date(1990, 6, 10), "Noel-Fitzpatrick.jpeg")
 vet_repository.save(vet_1)
 
 vet_2 = Vet("James Herriot", date(1939,12,14))

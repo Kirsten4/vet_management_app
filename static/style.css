@@ -14,7 +14,6 @@ h2 {
 }
 
 .animal-container {
-
     box-shadow: teal;
     width: 50%;
     justify-items: center;
@@ -30,15 +29,49 @@ h2 {
     
 }
 
-.animal-container div img {
-
-    min-height: 250px;
-
+#header-vet{
+    grid-area: header-vet;
 }
+
+#photo-vet{
+    display: flex;
+    grid-area: photo-vet;
+    justify-content: center;
+}
+
+#buttons-vet {
+    grid-area: buttons-vet;
+}
+
+#qualified-vet {
+    grid-area: qualified-vet;
+}
+
+#vet-container{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 70%;
+    display: grid;
+    grid-template-areas: 
+    'header-vet header-vet'
+    'qualified-vet photo-vet'
+    'buttons-vet photo-vet';
+    background-color: #dddad7;
+    border: solid 3px rgb(20, 63, 77);
+}
+
+.vet-photo{
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
 
 .animal-button {
     display: flex;
     flex-flow: row wrap;
-    background-color: teal;
+    background-color: rgb(164, 168, 168);
 }
 

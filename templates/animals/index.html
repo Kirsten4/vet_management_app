@@ -2,19 +2,31 @@
 
 {% block content %}
 <h1>Animals</h1>
+
+    <div class="submit-form"> 
+        <a href="/animals/new">+ Register New Animal</a>
+    </div>
+<hr>
 <h3>Animals in practice:</h3>
-<p>{% for animal in checked_in_animals %}
-    <ul>
-        <li>
-            {{ animal[0] }}{{ animal[1] }}{{ animal[2] }}{{ animal[3] }}
-        </li>
-    </ul>
-{% endfor %}</p>
-
-<div class="submit-form"> 
-    <a href="/animals/new">+ Register New Animal</a>
-</div>
-
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Check-in Time</th>
+            <th>Type of Appointment</th>
+            <th>Vet</th>
+        </tr>
+        {% for animal in checked_in_animals %}
+            <tr>
+                <td>{{ animal[0] }}</td>
+                <td>{{ animal[1] }}</td>
+                <td>{{ animal[2] }}</td>
+                <td>{{ animal[3] }}</td>
+            </tr>
+        {% endfor %}
+            
+    </table>    
+ 
+<hr>
 
     {% for animal in animals %}
         

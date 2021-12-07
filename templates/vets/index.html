@@ -7,26 +7,39 @@
     <a href="/vets/new">+ Add New Vet</a>
 </div>
 
-<ul>
     {% for vet in vets %}
-        <li>
-            {{ vet.name }}
-        {% if vet.photo %}
-            <img src="/static/img/{{ vet.photo }}" alt="vet photo">  
-        {% else %}
-            <img src="/static/img/placeholder-avatar.png" alt="vet photo">  
-        {% endif %} 
-        
-        <form class="edit-form" action="/vets/{{vet.id}}/edit">
-            <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
+    <section id="vet-container">
+        <div id="header-vet">
+            <h3 >
+                {{ vet.name }}
+            </h3>
+        </div>
+        <div id="qualified-vet">
+            Qualified: {{ vet.qualified_date.strftime("%d %b %Y") }}
+        </div>
+         <div id="photo-vet">  
+            {% if vet.photo %}
+                <img class="vet-photo" src="/static/img/{{ vet.photo }}" alt="vet photo">  
+            {% else %}
+                <img class="vet-photo" src="/static/img/placeholder-avatar.png" alt="vet photo">  
+            {% endif %} 
+        </div> 
+        <div id="buttons-vet">
+            <form action="/vets/{{vet.id}}/edit">
+                <button>
+                    <i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i>
+                </button> 
             </form>
-    
-        <form class="delete-form" action="/vets/{{vet.id}}/delete" method="POST">
-            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
-        </form>
-        </li>
+        
+            <form action="/vets/{{vet.id}}/delete" method="POST">
+                <button>
+                    <i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i>
+                </button> 
+            </form>
+        </div>
+    </section> 
     {% endfor %}
-</ul>
+
 
 
 {% endblock content %}
