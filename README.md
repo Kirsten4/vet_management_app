@@ -20,3 +20,9 @@ A veterinary practice has approached you to build a web application to help them
 - Let the practice see all animals currently in the practice (today's date is between the check-in and check-out?)
 - Sometimes an owner does not know the DOB. Allow them to enter an age instead. Try and make sure this always up to date - ie if they visit again a year from now a 3 yr old dog is now 4.
 - Add extra functionality of your choosing - assigning treatments, a more comprehensive way of maintaining treatment notes over time. Appointments. Pricing / billing.
+
+### Instructions for use:
+- create the database (command: createdb vet_database)
+- set up database tables (command: psql -d vet_database -f db/vet_database.sql)
+- run the console file to populate the tables with seed data (command: python3 console.py)
+- run Flask from the folder the porject is stored in
