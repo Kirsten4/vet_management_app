@@ -60,5 +60,5 @@ A veterinary practice has approached you to build a web application to help them
 
 ## Screenshots:
 ![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/home-page.png)
-![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/appointments-page.png)
-![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/animals-page.png)
+![appointments-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/appointments-page.png)
+![animals-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/animals-page.png)
