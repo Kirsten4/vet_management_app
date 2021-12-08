@@ -51,4 +51,4 @@ A veterinary practice has approached you to build a web application to help them
 - SQL
 
 ## Screenshots:
-![Home Page] (/static/img/home-page.png)
+! [Home Page] (/static/img/home-page.png)
