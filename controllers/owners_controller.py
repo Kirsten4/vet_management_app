@@ -56,7 +56,6 @@ def update_owner(id):
     owner_repository.update(owner)
     return redirect(url_for(".owners"))
 
-
 # DELETE
 # DELETE '/owners/<id>'
 @owners_blueprint.route("/owners/<id>/delete", methods=['POST'])
@@ -71,20 +70,15 @@ def show(id):
     animals = animal_repository.select_all_by_owner(owner)
     return render_template("owners/show.html", owner=owner, animals=animals)
 
-# @owners_blueprint.route("/owners/registered")
-# def check_owner_registered():
-#     owners = owner_repository.select_all()
-#     return render_template("owners/registered.html", owners=owners)
-
-
+# SHOW OWNER IS NOT REGISTERED
 @owners_blueprint.route("/owners/notregistered")
 def show_unregistered():
     owners = owner_repository.select_all()
     return render_template("owners/notregistered.html", owners=owners)
 
+# REREGISTER OWNER
 @owners_blueprint.route("/owners/register", methods=['POST'])
 def re_register_owner():
-    print(request.form['owner_id'])
     owner_id = request.form['owner_id']
     owner = owner_repository.select(owner_id)
     owner_repository.reregister(owner)

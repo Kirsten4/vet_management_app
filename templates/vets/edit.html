@@ -6,14 +6,12 @@
 <form class="form-style-1" action="/vets/{{ vet.id }}" method="post">
     <div>
         <label for="name">Name: <span class="required_*">*</span></label><br>
-        <input type="text" id="name" name="name" value="{{ vet.name }}" placeholder="eg Joe Bloggs" required autofocus>
+            <input type="text" id="name" name="name" value="{{ vet.name }}" placeholder="eg Joe Bloggs" required autofocus>
     </div>
-
     <div>
         <label for="qualified_date">Qualified Date: <span class="required_*">*</span></label><br>
-        <input type="date" id="qualified_date" name="qualified_date" value="{{ vet.qualified_date }}" required> 
+            <input type="date" id="qualified_date" name="qualified_date" value="{{ vet.qualified_date }}" required> 
     </div>
-
     {% if vet.photo %}
         <div class="warning">
             Photo is already in the system! <br>
@@ -22,7 +20,7 @@
     {% else %}
     <div>
         <label for="photo">Select Photo (optional):</label><br>
-        <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
+            <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{ vet.photo }}">
     </div>  
     {% endif %}
     <div class="submit-button">

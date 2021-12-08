@@ -89,17 +89,12 @@ def delete_animal(id):
 def check_in_animal(id):  
     animal = animal_repository.select(id)
     appointments = appointment_repository.select_all_by_animal(animal)
-    print(appointments)
     for appointment in appointments:
-        print(appointment)
-        print(datetime.today())
-        print(appointment.date)
         if datetime.today().date() == appointment.date:
             animal_repository.check_in(animal)
             return redirect(url_for(".animals"))
         else:
             return render_template("appointments/not_today.html", appointment=appointment)
-
 
 # CHECK OUT
 # POST '/animals/<id>/check_out'
@@ -129,6 +124,5 @@ def create_note(id):
     animal = animal_repository.select(id)
     note = Note(date, comment, follow_up, animal)
     note_repository.save(note)
-    # url = "/animals/" + id + "/notes"
     return show(id)
 

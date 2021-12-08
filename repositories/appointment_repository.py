@@ -59,15 +59,7 @@ def select_all_by_animal(animal):
         appointments.append(appointment)
     return appointments
 
-def calculate_bill(id):
-    bill = 0
-    sql = "SELECT * FROM treatments WHERE treatment_id = "
 
-def is_appointment_today(appointment):
-    sql = "SELECT * appointments WHERE id=%s"
-    values = [appointment.id]
-    result = run_sql(sql,values)[0]
-    if result.date == datetime.today(): 
-        return True
+
 
 
