@@ -79,11 +79,7 @@ def assign_vet_to_animal(vets):
             number_of_animals = len(select_all_by_vet(vet))
     return selected_vet
 
-
-
-
 def check_in(animal):
-    # animal.checked_in_time = datetime.now(timezone.utc)
     animal.checked_in_time = datetime.now()
     animal.checked_out_time = None
     sql = "UPDATE animals SET (checked_in_time, checked_out_time) = (%s,%s) WHERE id = %s"
@@ -98,7 +94,6 @@ def check_out(animal):
     run_sql(sql, values)
 
 def all_animals_currently_in_practice():
-    # animals = []
     sql = "SELECT animals.name, animals.checked_in_time, treatments.description, vets.name, treatments.overnights, animals.id FROM vets INNER JOIN animals ON animals.vet_id = vets.id INNER JOIN appointments ON appointments.animal_id = animals.id INNER JOIN treatments ON treatments.id = appointments.treatment_id WHERE animals.checked_in_time IS NOT NULL AND animals.checked_out_time IS NULL AND appointments.date <= CURRENT_DATE"
     results = run_sql(sql)
     return results

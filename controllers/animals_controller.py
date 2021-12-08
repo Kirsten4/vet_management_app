@@ -98,7 +98,7 @@ def check_in_animal(id):
             animal_repository.check_in(animal)
             return redirect(url_for(".animals"))
         else:
-            return redirect("/appointment/<id>/not_today")
+            return render_template("appointments/not_today.html", appointment=appointment)
 
 
 # CHECK OUT
