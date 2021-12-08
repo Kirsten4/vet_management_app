@@ -31,9 +31,10 @@ A veterinary practice has approached you to build a web application to help them
 ### Using the app:
   - Accesss main functionality from quick access buttons on home page
   - The following CRUD functionality is avialble on each page for Vets, Owners, Animals and Appointments:
-    - Add/Register
-    - Edit
-    - Delete
+    - Add/Register (Create)
+    - View (Read)
+    - Edit (Update)
+    - Delete (Delete)
   - Unregistered owners cannot add new animals
   - Vets are auto-assigned when registering the animal. The vet which has the least animals already assigned to them will be selected.
   - Animals can be checked in from the appointments page
