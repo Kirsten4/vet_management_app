@@ -93,16 +93,23 @@ def check_in_animal(id):
         if datetime.today().date() == appointment.date:
             animal_repository.check_in(animal)
             return redirect(url_for(".animals"))
-        else:
-            return render_template("appointments/not_today.html", appointment=appointment)
+    return render_template("appointments/not_today.html", appointment=appointment)
 
 # CHECK OUT
 # POST '/animals/<id>/check_out'
 @animals_blueprint.route("/animals/<id>/check_out", methods=['GET','POST'])
 def check_out_animal(id):
     animal = animal_repository.select(id)
+    checked_in_animals = animal_repository.all_animals_currently_in_practice()
+    print(checked_in_animals)
+    price = 0
+    for pet in checked_in_animals:
+        print(animal.name)
+        print(pet[0])
+        if animal.name == pet[0]:
+            price = pet[6]
     animal_repository.check_out(animal)
-    return redirect(url_for(".animals"))
+    return render_template("animals/pay.html", price=price)
 
 # SHOW ANIMAL NOTES
 @animals_blueprint.route("/animals/<id>/notes")
