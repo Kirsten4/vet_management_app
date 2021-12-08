@@ -101,11 +101,8 @@ def check_in_animal(id):
 def check_out_animal(id):
     animal = animal_repository.select(id)
     checked_in_animals = animal_repository.all_animals_currently_in_practice()
-    print(checked_in_animals)
     price = 0
     for pet in checked_in_animals:
-        print(animal.name)
-        print(pet[0])
         if animal.name == pet[0]:
             price = pet[6]
     animal_repository.check_out(animal)
