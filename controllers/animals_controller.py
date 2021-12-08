@@ -71,7 +71,7 @@ def update_animal(id):
     place_holder_animal = animal_repository.select(id)
     checked_in_time = place_holder_animal.checked_in_time
     checked_out_time = place_holder_animal.checked_out_time
-    photo = request.form['photo']
+    photo = place_holder_animal.photo
     animal = Animal(name, date_of_birth, type_of_animal, owner, vet, photo, checked_in_time, checked_out_time, id)
     animal_repository.update(animal)
     return redirect(url_for(".animals"))
@@ -109,6 +109,7 @@ def check_out_animal(id):
 def show(id):
     animal = animal_repository.select(id)
     notes = note_repository.select_all_notes_by_animal(animal)
+    notes.sort(key=lambda x: x.date, reverse=True)
     return render_template("animals/show.html", notes=notes, animal=animal)
 
 # CREATE ANIMAL NOTES

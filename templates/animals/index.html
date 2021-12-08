@@ -38,44 +38,45 @@
         <p class="warning">There are no animals checked-in yet! <a href="/appointments">Go to appointments</a></p>
     {% endif %}  
 <hr>
-
+<section id="animal-flex">
     {% for animal in animals %}
-        <section id="animal-container">
-            <div id="header-animal">
-                <h3>
-                    {{ animal.name }} the {{ animal.type_of_animal }}
-                </h3>
-            </div>
-            <div id="animal-photo-cont">
-                {% if animal.photo %}
-                    <img class="animal-photo" src="/static/img/{{ animal.photo }}" alt="animal photo">  
-                {% else %}
-                    <img class="animal-photo"  src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
-                {% endif %} 
-            </div>
-            
-            <div id="animal-info">
-                Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
-                <br>
-                Owner: {{ animal.owner.name }}
-                <br>
-                Vet: {{ animal.vet.name }}
-            </div>
-            <div id="buttons-animal">
-                <form action="/animals/{{animal.id}}/edit">
-                    <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
-                </form>
-            
-                <form  action="/animals/{{animal.id}}/delete" method="POST">
-                    <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
-                </form>
-                <div class="submit-form">
-                    <a href="/animals/{{animal.id}}/notes">Notes</a>
+        <div>
+            <section id="animal-container">
+                <div id="header-animal">
+                    <h3>
+                        {{ animal.name }} the {{ animal.type_of_animal }}
+                    </h3>
+                </div>
+                <div id="animal-photo-cont">
+                    {% if animal.photo %}
+                        <img class="animal-photo" src="/static/img/{{ animal.photo }}" alt="animal photo">  
+                    {% else %}
+                        <img class="animal-photo"  src="/static/img/placeholder_icon.jpeg" alt="animal photo">  
+                    {% endif %} 
                 </div>
                 
-            </div>
-        </section>
-
+                <div id="animal-info">
+                    Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
+                    <br>
+                    Owner: {{ animal.owner.name }}
+                    <br>
+                    Vet: {{ animal.vet.name }}
+                </div>
+                <div id="buttons-animal">
+                    <form action="/animals/{{animal.id}}/edit">
+                        <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
+                    </form>
+                
+                    <form  action="/animals/{{animal.id}}/delete" method="POST">
+                        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
+                    </form>
+                    <div class="submit-form">
+                        <a href="/animals/{{animal.id}}/notes">Notes</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     {% endfor %}
+</section>
 
 {% endblock content %}
