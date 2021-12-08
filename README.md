@@ -51,6 +51,14 @@ A veterinary practice has approached you to build a web application to help them
 - Flask
 - SQL
 
+## Possible Future Extensions
+- Add medication schedule
+- Show repeat prescriptions to be ordered when due
+- Book appointments based on vet schedule/availability
+- Show list of animals marked as requiring a follow-up
+- Calculate bill based on if the owner is insured and only pays an excess
+
 ## Screenshots:
 ![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/home-page.png)
-
+![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/appointments-page.png)
+![home-page](https://github.com/Kirsten4/vet_management_app/blob/main/static/img/animals-page.png)
