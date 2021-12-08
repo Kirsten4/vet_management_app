@@ -4,6 +4,7 @@ import repositories.animal_repository as animal_repository
 import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
 import repositories.note_repository as note_repository
+import repositories.appointment_repository as appointment_repository
 from models.animal import Animal
 from models.note import Note
 
@@ -85,10 +86,20 @@ def delete_animal(id):
 # CHECK IN
 # POST '/animals/<id>/check_in'
 @animals_blueprint.route("/animals/<id>/check_in", methods=['GET', 'POST'])
-def check_in_animal(id):
+def check_in_animal(id):  
     animal = animal_repository.select(id)
-    animal_repository.check_in(animal)
-    return redirect(url_for(".animals"))
+    appointments = appointment_repository.select_all_by_animal(animal)
+    print(appointments)
+    for appointment in appointments:
+        print(appointment)
+        print(datetime.today())
+        print(appointment.date)
+        if datetime.today().date() == appointment.date:
+            animal_repository.check_in(animal)
+            return redirect(url_for(".animals"))
+        else:
+            return redirect("/appointment/<id>/not_today")
+
 
 # CHECK OUT
 # POST '/animals/<id>/check_out'

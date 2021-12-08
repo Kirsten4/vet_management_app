@@ -1,3 +1,4 @@
+from datetime import datetime
 from db.run_sql import run_sql
 from models.appointment import Appointment
 import repositories.treatment_repository as treatment_repository
@@ -61,3 +62,12 @@ def select_all_by_animal(animal):
 def calculate_bill(id):
     bill = 0
     sql = "SELECT * FROM treatments WHERE treatment_id = "
+
+def is_appointment_today(appointment):
+    sql = "SELECT * appointments WHERE id=%s"
+    values = [appointment.id]
+    result = run_sql(sql,values)[0]
+    if result.date == datetime.today(): 
+        return True
+
+
