@@ -116,26 +116,25 @@ td form {
 }
 
 #header-animal{
-    grid-area: header-animal;
+    display: flex;
     font-size: 30px;
+    justify-content: center;
 }
 
 #animal-photo-cont{
     display: flex;
-    grid-area: animal-photo-cont;
     justify-content: center;
 }
 
 #buttons-animal {
     display: flex;
-    grid-area: buttons-animal;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    margin-top: 20px;
 }
 
 #animal-info {
-    grid-area: animal-info;
     margin-top: 20px;
 }
 
@@ -144,12 +143,6 @@ td form {
     margin-bottom: 20px;
     padding: 20px;
     width: 30vw;
-    /* width: 30%;
-    display: grid; */
-    grid-template-areas: 
-    'header-animal animal-photo-cont'
-    'animal-info animal-photo-cont'
-    'buttons-animal animal-photo-cont';
     background-color: #dddad7;
     border: solid 3px rgb(20, 63, 77);
     border-radius: 8px;
@@ -188,4 +181,9 @@ table {
 .radio-container div label {
     font-weight: 300;
     font-size: 16px;
+}
+
+#animal-info div{
+    display: inline;
+    line-height: 1.8;
 }

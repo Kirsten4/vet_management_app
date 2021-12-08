@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>Owner's registration is not active!</h3>
+<h2 class="warning" >Owner's registration is not active!</h2>
 
-<form action="/owners/register" method="post">
+<form class="form-style-1" action="/owners/register" method="post">
     <div>
         <label for="owner">Unregistered Owners:</label>
         <select id="owner" name="owner_id">
@@ -12,8 +12,11 @@
             {% endif %}
           {% endfor %}
         </select>
+    </div >
+    <div class="submit-button">
+      <button type="submit">Reactivate Registration</button>
     </div>
-    <button type="submit">Reactivate Registration</button>
+    
 </form>
 
 {% endblock content %}

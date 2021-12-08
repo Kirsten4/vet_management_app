@@ -43,7 +43,7 @@
         <div>
             <section id="animal-container">
                 <div id="header-animal">
-                    <h3>
+                    <h3 >
                         {{ animal.name }} the {{ animal.type_of_animal }}
                     </h3>
                 </div>
@@ -56,18 +56,22 @@
                 </div>
                 
                 <div id="animal-info">
-                    Date of Birth: {{ animal.date_of_birth.strftime("%d %b %Y") }} 
-                    <br>
-                    Owner: {{ animal.owner.name }}
-                    <br>
-                    Vet: {{ animal.vet.name }}
+                        <div>
+                            <b>Date of Birth:</b>  {{ animal.date_of_birth.strftime("%d %b %Y") }}
+                            <br> 
+                            <b>Owner:</b>  {{ animal.owner.name }} 
+                            <br> 
+                            <b>Vet:</b> {{ animal.vet.name }}
+                        </div> 
                 </div>
                 <div id="buttons-animal">
                     <form action="/animals/{{animal.id}}/edit">
+                        <label for="edit_button"><b>Edit Animal</b></label><br>
                         <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 
                     </form>
                 
                     <form  action="/animals/{{animal.id}}/delete" method="POST">
+                        <label for="delete_button"><b>Delete Animal</b></label><br>
                         <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:rgb(92, 10, 10)"></i></button> 
                     </form>
                     <div class="submit-form">
