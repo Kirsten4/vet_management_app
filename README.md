@@ -1,3 +1,4 @@
+
 # vet_management_app
 
 ## Project Brief: 
@@ -51,4 +52,5 @@ A veterinary practice has approached you to build a web application to help them
 - SQL
 
 ## Screenshots:
-! [Home Page] (/static/img/home-page.png)
+![home-page] (https://github.com/Kirsten4/vet_management_app/blob/main/static/img/home-page.png)
+
