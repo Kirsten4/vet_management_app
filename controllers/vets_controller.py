@@ -49,7 +49,10 @@ def update_vet(id):
     name = request.form['name']
     qualified_date = request.form['qualified_date']
     vet = vet_repository.select(id)
-    photo = vet.photo
+    if vet.photo:
+        photo = vet.photo
+    else:
+        photo = request.form['photo']
     vet = Vet(name, qualified_date, photo, id)
     vet_repository.update(vet)
     return redirect(url_for(".vets"))
