@@ -22,7 +22,14 @@ A veterinary practice has approached you to build a web application to help them
 - Add extra functionality of your choosing - assigning treatments, a more comprehensive way of maintaining treatment notes over time. Appointments. Pricing / billing.
 
 ### Instructions for use:
-- create the database (command: createdb vet_database)
-- set up database tables (command: psql -d vet_database -f db/vet_database.sql)
-- run the console file to populate the tables with seed data (command: python3 console.py)
-- run Flask from the folder the porject is stored in
+#### Set-up:
+  - create the database (command: createdb vet_database)
+  - set up database tables (command: psql -d vet_database -f db/vet_database.sql)
+  - run the console file to populate the tables with seed data (command: python3 console.py)
+  - run Flask from the folder the project is stored in
+#### Using the app:
+  - Accesss main functionality from quick access buttons on home page
+  - The following CRUD functionality is avialble on each page for Vets, Owners, Animals and Appointments:
+    - Add/Register
+    - Edit
+    - Delete
