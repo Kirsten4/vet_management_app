@@ -1,5 +1,5 @@
 
-# vet_management_app
+# Vet Management App
 
 ## Project Brief: 
 Vet Management App
