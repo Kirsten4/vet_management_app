@@ -51,6 +51,7 @@ body{
     grid-area: logo-1;
     align-self: center;
     justify-self: center;
+    padding: 10px;
 }
 
 #logo-1 img {
@@ -66,3 +67,4 @@ body{
     grid-template-columns: 170px 7fr 170px;
     grid-template-rows: 1.5fr 8fr 0.5fr;
 }
+
