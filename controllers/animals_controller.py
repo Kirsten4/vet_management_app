@@ -71,7 +71,10 @@ def update_animal(id):
     place_holder_animal = animal_repository.select(id)
     checked_in_time = place_holder_animal.checked_in_time
     checked_out_time = place_holder_animal.checked_out_time
-    photo = place_holder_animal.photo
+    if place_holder_animal.photo:
+        photo = place_holder_animal.photo
+    else:
+        photo = request.form['photo']
     animal = Animal(name, date_of_birth, type_of_animal, owner, vet, photo, checked_in_time, checked_out_time, id)
     animal_repository.update(animal)
     return redirect(url_for(".animals"))
