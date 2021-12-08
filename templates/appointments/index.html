@@ -12,7 +12,7 @@
         <th>Date</th>
         <th>Treatment</th>
         <th>Animal</th>
-        <th>Total Bill</th>
+        <th>Price (£)</th>
         <th>Edit Appointment</th>
         <th>Delete Appointment</th>
         <th>Check In</th>
@@ -23,7 +23,7 @@
         <td>{{ appointment.date.strftime("%d %b %Y") }}</td>
         <td>{{ appointment.treatment.description }}</td>
         <td>{{ appointment.animal.name }}</td>
-        <td>{{ appointment.total_bill }}</td>
+        <td>{{ appointment.treatment.price }}</td>
         <td>
             <form class="animal-form" action="/appointments/{{appointment.id}}/edit">
                 <button class="edit-button"><i class="fa fa-pencil-square-o fa-3x" style="color:rgb(20, 107, 81)" ></i></button> 

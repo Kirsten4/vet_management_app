@@ -19,7 +19,7 @@ def select_all():
     for row in results:
         treatment = treatment_repository.select(row['treatment_id'])
         animal = animal_repository.select(row['animal_id'])
-        appointment = Appointment(row['date'], treatment, animal, row['total_bill'], row['id'])
+        appointment = Appointment(row['date'], treatment, animal, row['id'])
         appointments.append(appointment)
     return appointments
 
@@ -35,7 +35,7 @@ def select(id):
     if result is not None:
         treatment = treatment_repository.select(result['treatment_id'])
         animal = animal_repository.select(result['animal_id'])
-        appointment = Appointment(result['date'], treatment, animal, result['total_bill'], result['id'])
+        appointment = Appointment(result['date'], treatment, animal, result['id'])
     return appointment
 
 def delete(id):
@@ -44,8 +44,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(appointment):
-    sql = "UPDATE appointments SET (date, treatment_id, animal_id, total_bill) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [appointment.date, appointment.treatment.id, appointment.animal.id, appointment.total_bill, appointment.id]
+    sql = "UPDATE appointments SET (date, treatment_id, animal_id) = (%s, %s, %s) WHERE id = %s"
+    values = [appointment.date, appointment.treatment.id, appointment.animal.id, appointment.id]
     run_sql(sql, values)
 
 def select_all_by_animal(animal):
@@ -55,9 +55,11 @@ def select_all_by_animal(animal):
     results = run_sql(sql,values)
     for result in results:
         treatment = treatment_repository.select(result['treatment_id'])
-        appointment = Appointment(result['date'], treatment, animal, result['total_bill'], result['id'])
+        appointment = Appointment(result['date'], treatment, animal, result['id'])
         appointments.append(appointment)
     return appointments
+
+
 
 
 

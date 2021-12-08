@@ -12,7 +12,8 @@ appointments_blueprint = Blueprint("appointments", __name__)
 def appointments():
     appointments = appointment_repository.select_all()
     appointments.sort(key=lambda x: x.date)
-    return render_template("appointments/index.html", appointments=appointments)
+    treatments = treatment_repository.select_all()
+    return render_template("appointments/index.html", appointments=appointments, treatments=treatments)
 
 # NEW
 # GET '/appointments/new'
@@ -54,9 +55,7 @@ def update_appointment(id):
     animal_id = request.form['animal_id']
     treatment = treatment_repository.select(treatemnt_id)
     animal = animal_repository.select(animal_id)
-    place_holder_appointment = appointment_repository.select(id)
-    total_bill = place_holder_appointment.total_bill
-    appointment = Appointment(date, treatment, animal, total_bill, id)
+    appointment = Appointment(date, treatment, animal, id)
     appointment_repository.update(appointment)
     return redirect(url_for(".appointments"))
 

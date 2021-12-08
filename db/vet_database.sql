@@ -53,8 +53,7 @@ CREATE TABLE appointments(
     id SERIAL PRIMARY KEY,
     date DATE,
     treatment_id INT REFERENCES treatments(id),
-    animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
-    total_bill Money 
+    animal_id INT REFERENCES animals(id) ON DELETE CASCADE
 );
 
 
