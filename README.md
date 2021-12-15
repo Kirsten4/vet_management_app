@@ -2,7 +2,7 @@
 # Vet Management App
 
 ## Project Brief: 
-Vet Management App
+### Vet Management App
 A veterinary practice has approached you to build a web application to help them manage their animals and vets. A vet may look after many animals at a time. An animal is registered with only one vet.
 
 ### MVP
@@ -26,7 +26,7 @@ A veterinary practice has approached you to build a web application to help them
 ### Set-up:
   - create the database (command: createdb vet_database)
   - set up database tables (command: psql -d vet_database -f db/vet_database.sql)
-  - run the console file to populate the tables with seed data (command: python3 console.py)
+  - run the console file to populate the tables with data (command: python3 console.py)
   - run Flask from the folder the project is stored in
 ### Using the app:
   - Accesss main functionality from quick access buttons on home page
